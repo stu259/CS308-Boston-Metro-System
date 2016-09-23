@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<com.yattasolutions.uml.diagrams.classifier:ClassDiagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:com.yattasolutions.diagrams="http://ns.yatta-solutions.com/umllab/diagrams/1.1.0" xmlns:com.yattasolutions.uml.diagrams.classifier="http://ns.yatta-solutions.com/umllab/diagrams/classifier/1.1.0" xmi:id="_u3SlgIGLEeatoIS3jXI6_Q">
+  <modelElement href="CS308-W60-Task1.uml#_u0qIQIGLEeatoIS3jXI6_Q"/>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:AssociationVisual" xmi:id="_5xXQ8IGMEeatoIS3jXI6_Q" sourceAnchor="103.0,126.0" targetAnchor="103.0,126.0" target="_wR1Q4IGLEeatoIS3jXI6_Q" source="_wR1Q4IGLEeatoIS3jXI6_Q">
+    <modelElement href="CS308-W60-Task1.uml#_5v21EYGMEeatoIS3jXI6_Q"/>
+    <nameVisual xmi:id="_5xXQ8YGMEeatoIS3jXI6_Q" text="">
+      <visualProperties xmi:id="_A__6gIGQEeaBfdFKiZ9CMA" position="-8.0,-8.0"/>
+    </nameVisual>
+    <sourceRole xmi:id="_5xXQ8oGMEeatoIS3jXI6_Q" aggregationKind="NONE" name="outbound" navigable="true">
+      <modelElement href="CS308-W60-Task1.uml#_jsYW0IGMEeatoIS3jXI6_Q"/>
+      <visualProperties xmi:id="_A_-sYIGQEeaBfdFKiZ9CMA" position="-34.0,-17.0"/>
+      <visibility xmi:id="_5xXQ84GMEeatoIS3jXI6_Q" label="+"/>
+      <cardinality xmi:id="_5xXQ9IGMEeatoIS3jXI6_Q" label="1" max="1" min="1"/>
+    </sourceRole>
+    <targetRole xmi:id="_5xXQ9YGMEeatoIS3jXI6_Q" aggregationKind="NONE" name="">
+      <modelElement href="CS308-W60-Task1.uml#_5v21EoGMEeatoIS3jXI6_Q"/>
+      <visualProperties xmi:id="_A__6gYGQEeaBfdFKiZ9CMA" position="-7.0,-17.0"/>
+      <visibility xmi:id="_5xXQ9oGMEeatoIS3jXI6_Q" label="+"/>
+      <cardinality xmi:id="_5xXQ94GMEeatoIS3jXI6_Q" label="1" max="1" min="1"/>
+    </targetRole>
+  </edges>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_gUz2sIGPEeaBfdFKiZ9CMA" targetItem="_0QkP8IGOEeaBfdFKiZ9CMA" sourceItem="_gUxacIGPEeaBfdFKiZ9CMA"/>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:AssociationVisual" xmi:id="_gU5WQIGPEeaBfdFKiZ9CMA" source="_0QkP8IGOEeaBfdFKiZ9CMA">
+    <modelElement href="CS308-W60-Task1.uml#_gUqFsIGPEeaBfdFKiZ9CMA"/>
+    <stereotypes xmi:id="_gU5WQYGPEeaBfdFKiZ9CMA" name="Reference">
+      <modelElement href="CS308-W60-Task1.uml#_gUqswIGPEeaBfdFKiZ9CMA"/>
+    </stereotypes>
+    <nameVisual xmi:id="_gU5WQoGPEeaBfdFKiZ9CMA" text=""/>
+    <sourceRole xmi:id="_gU5WQ4GPEeaBfdFKiZ9CMA" aggregationKind="NONE" name="">
+      <modelElement href="CS308-W60-Task1.uml#_gUqFsYGPEeaBfdFKiZ9CMA"/>
+      <visibility xmi:id="_gU5WRIGPEeaBfdFKiZ9CMA" label="+"/>
+      <cardinality xmi:id="_gU5WRYGPEeaBfdFKiZ9CMA" label="1" max="1" min="1"/>
+    </sourceRole>
+    <targetRole xmi:id="_gU5WRoGPEeaBfdFKiZ9CMA" aggregationKind="NONE" name="fileInput" navigable="true">
+      <modelElement href="CS308-W60-Task1.uml#_gUnpcIGPEeaBfdFKiZ9CMA"/>
+      <stereotypes xmi:id="_gVcI0IGPEeaBfdFKiZ9CMA" name="LegacyStyledElement"/>
+      <visibility xmi:id="_gU5WR4GPEeaBfdFKiZ9CMA" label="-"/>
+      <cardinality xmi:id="_gU5WSIGPEeaBfdFKiZ9CMA" label="1" max="1" min="1"/>
+    </targetRole>
+  </edges>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_gVRwwIGPEeaBfdFKiZ9CMA" targetItem="_GRLVsIGPEeaBfdFKiZ9CMA" sourceItem="_gVNfUIGPEeaBfdFKiZ9CMA"/>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_gVlSwIGPEeaBfdFKiZ9CMA" targetItem="_S024sIGPEeaBfdFKiZ9CMA" sourceItem="_gVfzMIGPEeaBfdFKiZ9CMA"/>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:AssociationVisual" xmi:id="_A9vQsIGQEeaBfdFKiZ9CMA" sourceAnchor="206.0,126.0" targetAnchor="0.0,121.0" target="_HQvcoIGMEeatoIS3jXI6_Q" source="_wR1Q4IGLEeatoIS3jXI6_Q">
+    <modelElement href="CS308-W60-Task1.uml#_A9s0cIGQEeaBfdFKiZ9CMA"/>
+    <visualProperties xmi:id="_A9vQsYGQEeaBfdFKiZ9CMA"/>
+    <nameVisual xmi:id="_A9vQsoGQEeaBfdFKiZ9CMA" text="">
+      <visualProperties xmi:id="_BABvsIGQEeaBfdFKiZ9CMA" position="-21.0,-6.0"/>
+    </nameVisual>
+    <sourceRole xmi:id="_A9vQs4GQEeaBfdFKiZ9CMA" aggregationKind="NONE" name="node" navigable="true">
+      <modelElement href="CS308-W60-Task1.uml#_A9tbgIGQEeaBfdFKiZ9CMA"/>
+      <visualProperties xmi:id="_BAAhkIGQEeaBfdFKiZ9CMA" position="16.0,-47.0"/>
+      <visibility xmi:id="_A9vQtIGQEeaBfdFKiZ9CMA" label="+"/>
+      <cardinality xmi:id="_A9vQtYGQEeaBfdFKiZ9CMA" label="*" max="-1"/>
+    </sourceRole>
+    <targetRole xmi:id="_A9vQtoGQEeaBfdFKiZ9CMA" aggregationKind="NONE" name="graph" navigable="true">
+      <modelElement href="CS308-W60-Task1.uml#_A9tbg4GQEeaBfdFKiZ9CMA"/>
+      <visualProperties xmi:id="_BABvsYGQEeaBfdFKiZ9CMA" position="-71.0,15.0"/>
+      <visibility xmi:id="_A9vQt4GQEeaBfdFKiZ9CMA" label="+"/>
+      <cardinality xmi:id="_A9vQuIGQEeaBfdFKiZ9CMA" label="*" max="-1"/>
+    </targetRole>
+  </edges>
+  <edges xsi:type="com.yattasolutions.diagrams:UsageVisual" xmi:id="_UvIXkIGQEeaBfdFKiZ9CMA" sourceAnchor="0.0,132.0" targetAnchor="195.0,121.0" client="_IVLVIIGMEeatoIS3jXI6_Q" supplier="_HQvcoIGMEeatoIS3jXI6_Q">
+    <modelElement href="CS308-W60-Task1.uml#_UvHJcIGQEeaBfdFKiZ9CMA"/>
+    <visualProperties xmi:id="_UvIXkYGQEeaBfdFKiZ9CMA"/>
+    <nameVisual xmi:id="_UvIXkoGQEeaBfdFKiZ9CMA" text=""/>
+  </edges>
+  <edges xsi:type="com.yattasolutions.diagrams:UsageVisual" xmi:id="_VYyYkIGQEeaBfdFKiZ9CMA" sourceAnchor="93.0,271.0" targetAnchor="152.0,0.0" client="_IVLVIIGMEeatoIS3jXI6_Q" supplier="_0QkP8IGOEeaBfdFKiZ9CMA">
+    <modelElement href="CS308-W60-Task1.uml#_VYxxgIGQEeaBfdFKiZ9CMA"/>
+    <visualProperties xmi:id="_VYyYkYGQEeaBfdFKiZ9CMA"/>
+    <nameVisual xmi:id="_VYyYkoGQEeaBfdFKiZ9CMA" text=""/>
+  </edges>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_gUxacIGPEeaBfdFKiZ9CMA" sourceConnectionVisual="_gUz2sIGPEeaBfdFKiZ9CMA" text="This class reads a text description of a metro subway system&#xD;&#xA;     * and generates a graph representation of the metro.&#xD;&#xA;     *&#xD;&#xA;     * Students should feel free to modify this code as needed&#xD;&#xA;     *  to complete this exercise.&#xD;&#xA;     *&#xD;&#xA;     *&lt;p>&#xD;&#xA;     *&#xD;&#xA;     * The grammar for the file is described below in BNF. A typical line&#xD;&#xA;     * in the file looks like this :&#xD;&#xA;     *&#xD;&#xA;     * &lt;code> 20 NorthStation   Green 19 22  Orange 15 22  &lt;/code>&#xD;&#xA;     *&#xD;&#xA;     * where :&#xD;&#xA;     *         20 is the StationID&#xD;&#xA;     *         NorthStation is the StationName&#xD;&#xA;     *         Green 19 22&#xD;&#xA;     *                  Green is the LineName&#xD;&#xA;     *                  19 is the StationID of the outbound station&#xD;&#xA;     *                  22 is the StationID of the inbound station&#xD;&#xA;     *         Orange 15 22 is a LineID in which :&#xD;&#xA;     *                  Orange is the LineName&#xD;&#xA;     *                  15 is the StationID of the outbound station&#xD;&#xA;     *                  22 is the StationID of the inbound station&#xD;&#xA;     *&#xD;&#xA;     *         Therefore, NorthStation has two outgoing lines.&#xD;&#xA;     *&#xD;&#xA;     *  note : 0 denotes the end of a line : i.e. in this case,&#xD;&#xA;     *  OakGrove would be at the end of the line, as there is no other outbound &#xD;&#xA;     *  station.&#xD;&#xA;     *&#xD;&#xA;     *&lt;p>&#xD;&#xA;     * metro-map ::= station-spec* &lt;BR>&#xD;&#xA;     * station-spec ::= station-id station-name station-line+ &lt;BR>&#xD;&#xA;     * station-id ::= (positive integer) &lt;BR>&#xD;&#xA;     * station-name ::= string &lt;BR>&#xD;&#xA;     * station-line ::= line-name station-id station-id &lt;BR>&#xD;&#xA;     *" item="_0QkP8IGOEeaBfdFKiZ9CMA">
+    <modelElement href="CS308-W60-Task1.uml#_gUo3lYGPEeaBfdFKiZ9CMA"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_gVNfUIGPEeaBfdFKiZ9CMA" sourceConnectionVisual="_gVRwwIGPEeaBfdFKiZ9CMA" text="@effects: creates a new parser that will read from the file &#xD;&#xA;     * filename unless the file does not exist. The filename should specify&#xD;&#xA;     * the exact location of the file. This means it should be something like&#xD;&#xA;     * /mit/$USER/6.170/ex3/bostonmetro.txt&#xD;&#xA;     *&#xD;&#xA;     * &#xD;&#xA;     * @throws java.io.IOException if there &lt;tt>filename&lt;/tt> cannot be read&#xD;&#xA;     *&#xD;&#xA;     * @returns a new MetroMapParser that will parse the file filename" item="_GRLVsIGPEeaBfdFKiZ9CMA">
+    <modelElement href="CS308-W60-Task1.uml#_gUpeoIGPEeaBfdFKiZ9CMA"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_gVfzMIGPEeaBfdFKiZ9CMA" sourceConnectionVisual="_gVlSwIGPEeaBfdFKiZ9CMA" text="@throws Exception &#xD;&#xA;     * @effects: parses the file, and generates a graph from it, unless there&#xD;&#xA;     * is a problem reading the file, or there is a problem with the format of the&#xD;&#xA;     * file.&#xD;&#xA;     *&#xD;&#xA;     * @throws ex3.BadFileException if there is a problem with the format of the file&#xD;&#xA;     *&#xD;&#xA;     * @returns the Graph generated by the file" item="_S024sIGPEeaBfdFKiZ9CMA">
+    <modelElement href="CS308-W60-Task1.uml#_gUpeoYGPEeaBfdFKiZ9CMA"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_wR1Q4IGLEeatoIS3jXI6_Q" name="Node" associationsIn="_5xXQ8IGMEeatoIS3jXI6_Q" associationsOut="_5xXQ8IGMEeatoIS3jXI6_Q _A9vQsIGQEeaBfdFKiZ9CMA">
+    <modelElement href="CS308-W60-Task1.uml#_wRvxUIGLEeatoIS3jXI6_Q"/>
+    <visualProperties xmi:id="_wR138IGLEeatoIS3jXI6_Q" position="105.0,36.0" size="206.0,252.0"/>
+    <visibility xmi:id="_wR138YGLEeatoIS3jXI6_Q" label="+"/>
+    <attributes xmi:id="_d55a0IGMEeatoIS3jXI6_Q" name="id">
+      <modelElement href="CS308-W60-Task1.uml#_d52XgIGMEeatoIS3jXI6_Q"/>
+      <visualProperties xmi:id="_ooqDkIGMEeatoIS3jXI6_Q"/>
+      <visibility xmi:id="_d55a0YGMEeatoIS3jXI6_Q" label="+"/>
+      <cardinality xmi:id="_d55a0oGMEeatoIS3jXI6_Q" label="1" max="1" min="1"/>
+      <type xmi:id="_d55a04GMEeatoIS3jXI6_Q" name="int">
+        <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_irEq0IGMEeatoIS3jXI6_Q" name="inbound">
+      <modelElement href="CS308-W60-Task1.uml#_irDcsIGMEeatoIS3jXI6_Q"/>
+      <visualProperties xmi:id="_oorRsIGMEeatoIS3jXI6_Q"/>
+      <visibility xmi:id="_irEq0YGMEeatoIS3jXI6_Q" label="+"/>
+      <cardinality xmi:id="_irEq0oGMEeatoIS3jXI6_Q" label="1" max="1" min="1"/>
+      <type xmi:id="_irEq04GMEeatoIS3jXI6_Q" name="Node">
+        <modelElement href="CS308-W60-Task1.uml#_wRvxUIGLEeatoIS3jXI6_Q"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_jsbaIIGMEeatoIS3jXI6_Q" name="outbound">
+      <modelElement href="CS308-W60-Task1.uml#_jsYW0IGMEeatoIS3jXI6_Q"/>
+      <visualProperties xmi:id="_oorRsYGMEeatoIS3jXI6_Q"/>
+      <visibility xmi:id="_jsbaIYGMEeatoIS3jXI6_Q" label="+"/>
+      <cardinality xmi:id="_jsbaIoGMEeatoIS3jXI6_Q" label="1" max="1" min="1"/>
+      <type xmi:id="_k2OTwIGMEeatoIS3jXI6_Q" name="Node">
+        <modelElement href="CS308-W60-Task1.uml#_wRvxUIGLEeatoIS3jXI6_Q"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_mNbXQIGMEeatoIS3jXI6_Q" name="color">
+      <modelElement href="CS308-W60-Task1.uml#_mNawMIGMEeatoIS3jXI6_Q"/>
+      <visualProperties xmi:id="_oor4wIGMEeatoIS3jXI6_Q"/>
+      <visibility xmi:id="_mNbXQYGMEeatoIS3jXI6_Q" label="+"/>
+      <cardinality xmi:id="_mNbXQoGMEeatoIS3jXI6_Q" label="1" max="1" min="1"/>
+      <type xmi:id="_mNbXQ4GMEeatoIS3jXI6_Q" name="String">
+        <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_BSzpIIGNEeatoIS3jXI6_Q" name="name">
+      <modelElement href="CS308-W60-Task1.uml#_BSybAIGNEeatoIS3jXI6_Q"/>
+      <visibility xmi:id="_BSzpIYGNEeatoIS3jXI6_Q" label="+"/>
+      <cardinality xmi:id="_BSzpIoGNEeatoIS3jXI6_Q" label="1" max="1" min="1"/>
+      <type xmi:id="_BSzpI4GNEeatoIS3jXI6_Q" name="String">
+        <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_A9xF4IGQEeaBfdFKiZ9CMA" name="graph">
+      <modelElement href="CS308-W60-Task1.uml#_A9tbg4GQEeaBfdFKiZ9CMA"/>
+      <visibility xmi:id="_A9xF4YGQEeaBfdFKiZ9CMA" label="+"/>
+      <cardinality xmi:id="_A9xF4oGQEeaBfdFKiZ9CMA" label="*" max="-1"/>
+      <type xmi:id="_A9xF44GQEeaBfdFKiZ9CMA" name="Graph">
+        <modelElement href="CS308-W60-Task1.uml#_HQu1kIGMEeatoIS3jXI6_Q"/>
+      </type>
+    </attributes>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_HQvcoIGMEeatoIS3jXI6_Q" supplying="_UvIXkIGQEeaBfdFKiZ9CMA" name="Graph" associationsIn="_A9vQsIGQEeaBfdFKiZ9CMA">
+    <modelElement href="CS308-W60-Task1.uml#_HQu1kIGMEeatoIS3jXI6_Q"/>
+    <visualProperties xmi:id="_HQvcoYGMEeatoIS3jXI6_Q" position="401.0,41.0" size="195.0,242.0"/>
+    <visibility xmi:id="_HQvcooGMEeatoIS3jXI6_Q" label="+"/>
+    <attributes xmi:id="_x3ubMIGMEeatoIS3jXI6_Q" name="nodes">
+      <modelElement href="CS308-W60-Task1.uml#_x3t0IIGMEeatoIS3jXI6_Q"/>
+      <visibility xmi:id="_x3ubMYGMEeatoIS3jXI6_Q" label="+"/>
+      <cardinality xmi:id="_x3ubMoGMEeatoIS3jXI6_Q" label="1" max="1" min="1"/>
+      <type xmi:id="_x3ubM4GMEeatoIS3jXI6_Q" name="Node">
+        <modelElement href="CS308-W60-Task1.uml#_wRvxUIGLEeatoIS3jXI6_Q"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_A9we0IGQEeaBfdFKiZ9CMA" name="node">
+      <modelElement href="CS308-W60-Task1.uml#_A9tbgIGQEeaBfdFKiZ9CMA"/>
+      <visibility xmi:id="_A9we0YGQEeaBfdFKiZ9CMA" label="+"/>
+      <cardinality xmi:id="_A9we0oGQEeaBfdFKiZ9CMA" label="*" max="-1"/>
+      <type xmi:id="_A9we04GQEeaBfdFKiZ9CMA" name="Node">
+        <modelElement href="CS308-W60-Task1.uml#_wRvxUIGLEeatoIS3jXI6_Q"/>
+      </type>
+    </attributes>
+    <operations xmi:id="_sEClUIGMEeatoIS3jXI6_Q" name="search">
+      <modelElement href="CS308-W60-Task1.uml#_sEBXMIGMEeatoIS3jXI6_Q"/>
+      <visibility xmi:id="_sEClUYGMEeatoIS3jXI6_Q" label="+"/>
+      <cardinality xmi:id="_sEClUoGMEeatoIS3jXI6_Q" label="1" max="1" min="1"/>
+    </operations>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_IVLVIIGMEeatoIS3jXI6_Q" using="_UvIXkIGQEeaBfdFKiZ9CMA _VYyYkIGQEeaBfdFKiZ9CMA" name="Driver">
+    <modelElement href="CS308-W60-Task1.uml#_IVKuEIGMEeatoIS3jXI6_Q"/>
+    <visualProperties xmi:id="_IVLVIYGMEeatoIS3jXI6_Q" position="685.0,30.0" size="188.0,271.0"/>
+    <visibility xmi:id="_IVLVIoGMEeatoIS3jXI6_Q" label="+"/>
+    <operations xmi:id="_0BvbsIGMEeatoIS3jXI6_Q" name="main">
+      <modelElement href="CS308-W60-Task1.uml#_0BuNkIGMEeatoIS3jXI6_Q"/>
+      <visibility xmi:id="_0BvbsYGMEeatoIS3jXI6_Q" label="+"/>
+      <cardinality xmi:id="_0BvbsoGMEeatoIS3jXI6_Q" label="1" max="1" min="1"/>
+    </operations>
+    <operations xmi:id="_1TvPEIGMEeatoIS3jXI6_Q" name="reader">
+      <modelElement href="CS308-W60-Task1.uml#_1TuoAIGMEeatoIS3jXI6_Q"/>
+      <visibility xmi:id="_1TvPEYGMEeatoIS3jXI6_Q" label="+"/>
+      <cardinality xmi:id="_1TvPEoGMEeatoIS3jXI6_Q" label="1" max="1" min="1"/>
+    </operations>
+    <operations xmi:id="_2DWHEIGMEeatoIS3jXI6_Q" name="display">
+      <modelElement href="CS308-W60-Task1.uml#_2DVgAIGMEeatoIS3jXI6_Q"/>
+      <visibility xmi:id="_2DWHEYGMEeatoIS3jXI6_Q" label="+"/>
+      <cardinality xmi:id="_2DWHEoGMEeatoIS3jXI6_Q" label="1" max="1" min="1"/>
+    </operations>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_0QkP8IGOEeaBfdFKiZ9CMA" comments="_gUxacIGPEeaBfdFKiZ9CMA" targetConnectionVisual="_gUz2sIGPEeaBfdFKiZ9CMA" supplying="_VYyYkIGQEeaBfdFKiZ9CMA" name="MetroMapParser" associationsOut="_gU5WQIGPEeaBfdFKiZ9CMA">
+    <modelElement href="CS308-W60-Task1.uml#_0QfXcIGOEeaBfdFKiZ9CMA"/>
+    <visualProperties xmi:id="_0QkP8YGOEeaBfdFKiZ9CMA" position="626.0,398.0" size="304.0,296.0"/>
+    <visibility xmi:id="_0QkP8oGOEeaBfdFKiZ9CMA" label="+"/>
+    <attributes xmi:id="_gUtJAIGPEeaBfdFKiZ9CMA" name="fileInput">
+      <modelElement href="CS308-W60-Task1.uml#_gUnpcIGPEeaBfdFKiZ9CMA"/>
+      <stereotypes xmi:id="_gUtJAYGPEeaBfdFKiZ9CMA" name="LegacyStyledElement">
+        <modelElement href="CS308-W60-Task1.uml#_gUnpcYGPEeaBfdFKiZ9CMA"/>
+      </stereotypes>
+      <visibility xmi:id="_gUtJAoGPEeaBfdFKiZ9CMA" label="-"/>
+      <cardinality xmi:id="_gUtJA4GPEeaBfdFKiZ9CMA" label="1" max="1" min="1"/>
+      <type xmi:id="_gUtJBIGPEeaBfdFKiZ9CMA" name="BufferedReader">
+        <modelElement href="CS308-W60-Task1.uml#_exWf4IGPEeaBfdFKiZ9CMA"/>
+      </type>
+    </attributes>
+    <operations xmi:id="_D8lc4IGPEeaBfdFKiZ9CMA" name="usage" staticOperation="true">
+      <modelElement href="CS308-W60-Task1.uml#_D8k10IGPEeaBfdFKiZ9CMA"/>
+      <visibility xmi:id="_D8lc4YGPEeaBfdFKiZ9CMA" label="-"/>
+      <cardinality xmi:id="_D8lc4oGPEeaBfdFKiZ9CMA" label="1" max="1" min="1"/>
+    </operations>
+    <operations xmi:id="_GRLVsIGPEeaBfdFKiZ9CMA" comments="_gVNfUIGPEeaBfdFKiZ9CMA" targetConnectionVisual="_gVRwwIGPEeaBfdFKiZ9CMA" name="MetroMapParser">
+      <modelElement href="CS308-W60-Task1.uml#_GRKuoIGPEeaBfdFKiZ9CMA"/>
+      <keywords xmi:id="_gVWCMIGPEeaBfdFKiZ9CMA" keyword="create"/>
+      <visibility xmi:id="_GRLVsYGPEeaBfdFKiZ9CMA" label="+"/>
+      <cardinality xmi:id="_GRLVsoGPEeaBfdFKiZ9CMA" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_gVLqIIGPEeaBfdFKiZ9CMA">
+        <modelElement href="CS308-W60-Task1.uml#_gUcDQoGPEeaBfdFKiZ9CMA"/>
+        <type xmi:id="_gVLqIYGPEeaBfdFKiZ9CMA" name="MetroMapParser">
+          <modelElement href="CS308-W60-Task1.uml#_0QfXcIGOEeaBfdFKiZ9CMA"/>
+        </type>
+      </outParameters>
+      <parameters xmi:id="_gVMRMIGPEeaBfdFKiZ9CMA" name="filename">
+        <modelElement href="CS308-W60-Task1.uml#_gUftoIGPEeaBfdFKiZ9CMA"/>
+        <cardinality xmi:id="_gVM4QIGPEeaBfdFKiZ9CMA" label="1" max="1" min="1"/>
+        <type xmi:id="_gVM4QYGPEeaBfdFKiZ9CMA" name="String">
+          <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </type>
+      </parameters>
+    </operations>
+    <operations xmi:id="_S024sIGPEeaBfdFKiZ9CMA" comments="_gVfzMIGPEeaBfdFKiZ9CMA" targetConnectionVisual="_gVlSwIGPEeaBfdFKiZ9CMA" name="generateGraphFromFile">
+      <modelElement href="CS308-W60-Task1.uml#_S02RoIGPEeaBfdFKiZ9CMA"/>
+      <visibility xmi:id="_S024sYGPEeaBfdFKiZ9CMA" label="+"/>
+      <cardinality xmi:id="_S024soGPEeaBfdFKiZ9CMA" label="1" max="1" min="1"/>
+    </operations>
+    <operations xmi:id="_b0klsIGPEeaBfdFKiZ9CMA" name="main" staticOperation="true">
+      <modelElement href="CS308-W60-Task1.uml#_b0j-oIGPEeaBfdFKiZ9CMA"/>
+      <visibility xmi:id="_b0klsYGPEeaBfdFKiZ9CMA" label="+"/>
+      <cardinality xmi:id="_b0klsoGPEeaBfdFKiZ9CMA" label="1" max="1" min="1"/>
+      <parameters xmi:id="_gU8ZkIGPEeaBfdFKiZ9CMA" name="args">
+        <modelElement href="CS308-W60-Task1.uml#_gUfGkIGPEeaBfdFKiZ9CMA"/>
+        <cardinality xmi:id="_gU8ZkYGPEeaBfdFKiZ9CMA" label="1..*" max="-1" min="1"/>
+        <type xmi:id="_gU8ZkoGPEeaBfdFKiZ9CMA" name="String">
+          <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </type>
+      </parameters>
+    </operations>
+  </nodes>
+</com.yattasolutions.uml.diagrams.classifier:ClassDiagram>
