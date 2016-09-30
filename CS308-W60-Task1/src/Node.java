@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 
 public interface Node {
-public void setOutbound(Node value);
+
     
 	public ArrayList<Edge> edges = null;
 
