@@ -7,12 +7,12 @@ public interface MultiGraphADT {
 	
 	//
    
-   public Node getNodes();
+   public Node getStations();
    
    public void search();
    
-   public void addEdge(Node n1, Node n2, String color);
+   public void addLine(Node n1, Node n2, String color);
    
-   public void removeEdge(Node n1, Node n2, String color);
+   public void removeLine(Node n1, Node n2, String color);
 
    }

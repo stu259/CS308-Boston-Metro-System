@@ -9,19 +9,19 @@ public class MetroSystem implements MultiGraphADT  {
 	}
 
 	@Override
-	public void addEdge(Node n1, Node n2, String color) {
+	public void addLine(Node n1, Node n2, String color) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void removeEdge(Node n1, Node n2, String color) {
+	public void removeLine(Node n1, Node n2, String color) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public Node getNodes() {
+	public Station getStations() {
 		// TODO Auto-generated method stub
 		return null;
 	}

@@ -6,8 +6,7 @@ import java.util.ArrayList;
 public interface Node {
 
     
-	public ArrayList<Edge> edges = null;
-
+   public ArrayList<Edge> edges = null;
    
    public void setName(String value);
    

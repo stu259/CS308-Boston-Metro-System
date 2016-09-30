@@ -116,8 +116,7 @@ public class MetroMapParser
      */
 
     public  void  generateGraphFromFile()
-	throws 
-Exception
+	throws Exception
     {
 
 	String line = fileInput.readLine();
