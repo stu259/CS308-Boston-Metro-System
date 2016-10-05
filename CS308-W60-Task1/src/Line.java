@@ -1,39 +1,31 @@
 
-public class Line implements Edge{
+public class Line implements IEdge{
 	private String colour;
-	private Node in, out;
+	private int in, out;
 	private boolean visited;	
 	
-	public Line(Node in, Node out, String colour){
+	public Line(int in, int out, String colour){
 		this.colour= colour;
 		this.in = in;
 		this.out = out;
 		this.setVisited(false);
 	}
 	
-	public Node getIn(){
-		Node inCopy = this.in;
+	public int getIn(){
+		int inCopy = this.in;
 		return inCopy;
 	}
 	
-	public Node getOut(){
-		Node outCopy = this.out;
+	public int getOut(){
+		int outCopy = this.out;
 		return outCopy;
-	}
-	
-	public void setIn(Node node){
-		this.in = node;
-	}
-	
-	public void setOut(Node node){
-		this.out = node;
 	}
 	
 	public boolean isVisited() {
 		return visited;
 	}
 	
-	public String getColour(Node node) {
+	public String getColour(INode node) {
 		return this.colour;
 	}
 

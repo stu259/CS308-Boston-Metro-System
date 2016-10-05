@@ -1,12 +1,12 @@
 import java.util.*;
 
-public class Station implements Node {
+public class Station implements INode {
 	
 	private String Name;
 	private int ID;
 	private ArrayList<Line> lines;
 	
-	public Station(String Name) {
+	public Station(int ID, String Name) {
 		this.Name = Name;
 	}
 
@@ -32,8 +32,8 @@ public class Station implements Node {
 		return this.ID;
 	}
 	
-	public ArrayList<Edge> getLines() {
-		return new ArrayList<Edge>(this.lines);
+	public ArrayList<IEdge> getLines() {
+		return new ArrayList<IEdge>(this.lines);
 	}
 
 }

@@ -3,10 +3,10 @@ import java.util.ArrayList;
 // needs comments by Aaron3
 
 
-public interface Node {
+public interface INode {
 
     
-   public ArrayList<Edge> edges = null;
+   public ArrayList<IEdge> edges = null;
    
    public void setName(String value);
    
