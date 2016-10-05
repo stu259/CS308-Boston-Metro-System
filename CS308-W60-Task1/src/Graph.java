@@ -4,18 +4,13 @@ import java.util.*;
 public class Graph implements MultiGraphADT  {
 
 	private ArrayList<IEdge> lineList = null;
-    List<Integer>[]	adjList;
-	HashMap<Integer, INode> graph = new HashMap<Integer, INode>();
+	private HashMap<Integer, INode> graph = new HashMap<Integer, INode>();
 	private int NumNodes;
 	
 
 	
 	public Graph(int N) {
 		lineList = new ArrayList<IEdge>();
-        adjList = new List[N];
-		for(int i = 0; i < N; ++i) {
-            adjList[i] = new ArrayList<Integer>();
-		}
 		this.NumNodes = N;
 		
 	}
@@ -30,12 +25,18 @@ public class Graph implements MultiGraphADT  {
 		lineList.add(new Line(n1, n2, color));
 	        IEdge edge = new Line(n1,n2, color);
 	        lineList.add(edge);
-	        adjList[n1].add(n2);
-	        adjList[n2].add(n1);
 		
 	}
 
+	public int nNodes() {
+		return NumNodes;
+	}
 
+    public int nEdges()
+    {
+        return lineList.size();
+    }
+    
 	@Override
 	public INode getNode(int id) {
 		// TODO Auto-generated method stub
@@ -53,13 +54,14 @@ public class Graph implements MultiGraphADT  {
 		
 	}
 	
-    ArrayList<Integer> successors(int node) {
-    	ArrayList<Integer> successorNodes = new ArrayList<Integer>();
+    public ArrayList<Integer> successors(int node) 
+    {
+        ArrayList<Integer> successorNodes = new ArrayList<Integer>();
         for (int i=0; i<nEdges(); i++)
-            if (edges.get(i).node1 == node)
-                successorNodes.add(edges.get(i).node2);
+           if (lineList.get(i).getIn() == node)
+             successorNodes.add(lineList.get(i).getOut());
         return successorNodes;
-    }
+    };
 
 
 	
