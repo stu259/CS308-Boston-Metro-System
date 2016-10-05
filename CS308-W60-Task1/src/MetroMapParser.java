@@ -52,8 +52,8 @@ import java.util.*
 public class MetroMapParser
 {
 	
-	private ArrayList<Integer> id = null;
-	private ArrayList<String> name = null;
+	private ArrayList<Integer> id = new ArrayList<>();
+	private ArrayList<String> name = new ArrayList<>();
 	private List<String[]> lineColours;
 	private List<int[]> inID;
 	private List<int[]> outID;
@@ -63,25 +63,25 @@ public class MetroMapParser
     
     public static void main(String[] args)
     {
+		
+		if(args.length != 1)
+		{
+		    usage();
+		    System.exit(0);
+		}
 	
-	if(args.length != 1)
-	{
-	    usage();
-	    System.exit(0);
-	}
-
-	String filename = args[0];
-	
-	
-	try
-	{
-	    MetroMapParser mmp = new MetroMapParser(filename);
-	    mmp.generateGraphFromFile();
-	}
-	catch(Exception e)
-	{
-	    e.printStackTrace();
-	}
+		String filename = args[0];
+		
+		
+		try
+		{
+		    MetroMapParser mmp = new MetroMapParser(filename);
+		    mmp.generateGraphFromFile();
+		}
+		catch(Exception e)
+		{
+		    e.printStackTrace();
+		}
     }
 
 
@@ -90,8 +90,6 @@ public class MetroMapParser
 	//prints a usage message to System.out
 	System.out.println("java ex3.MetroMapParser <filename>");
     }
-
-    
 
     
     /**
@@ -136,11 +134,11 @@ public class MetroMapParser
 	
 	int counter = 0;
 	
-	int[] inStations = null;
+	int[] inStations = new int[4];
 	inID = new ArrayList<int[]>();
-	int[] outStations = null;
+	int[] outStations = new int[4];
 	outID = new ArrayList<int[]>();
-	String[] colour = null;
+	String[] colour = new String[4];
 	lineColours = new ArrayList<String[]>();
 	
 	
@@ -171,6 +169,7 @@ public class MetroMapParser
 	    //from the grammar, we know that the Station ID is the first token on the line
 	    stationID = st.nextToken();
 	    id.add(Integer.parseInt(stationID));
+	    
 	    
 	    if(!st.hasMoreTokens())
 	    {
@@ -206,6 +205,8 @@ public class MetroMapParser
 	
 			inboundID = st.nextToken();
 			
+			
+			/*needs comments here and below*/
 			colour[counter] = lineName;
 			inStations[counter] = Integer.parseInt(inboundID);
 			outStations[counter] = Integer.parseInt(outboundID);
@@ -215,9 +216,10 @@ public class MetroMapParser
 	    inID.add(inStations);
 	    outID.add(outStations);
 	    lineColours.add(colour);
-	    inStations = null;
-	    outStations = null;
-	    colour = null;
+	    inStations = new int[4];
+	    outStations = new int[4];
+	    colour = new String[4];
+	    counter = 0;
 		
 	    line = fileInput.readLine();
 	}
@@ -233,16 +235,36 @@ public class MetroMapParser
     	return name.get(idNum);
     }
     
+    /**
+     * 
+     * @param idNum
+     * @return a list of all inbound nodes connected to the node with id idNum
+     */
     public int[] getInID(int idNum){
     	return inID.get(idNum);
     }
+    /**
+     * 
+     * @param idNum
+     * @return a list of all outbound nodes connected to the node with id idNum
+     */
     
     public int[] getOutID(int idNum){
     	return outID.get(idNum);
     }
     
+    /**
+     * 
+     * @param idNum
+     * @return a list of all colours for the node with id idNum
+     */
+    
     public String[] getColours(int idNum){
     	return lineColours.get(idNum);
+    }
+    
+    public int getNumNodes(){
+    	return id.size();
     }
 
     

@@ -1,4 +1,10 @@
 
 public class MetroSystem {
-Graph BostonMS = new Graph(0);
+	Graph BostonMS;
+	
+	public MetroSystem(int gNodes){
+		BostonMS = new Graph(gNodes);
+		
+	}
+	
 }

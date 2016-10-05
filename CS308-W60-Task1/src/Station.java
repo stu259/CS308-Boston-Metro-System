@@ -8,6 +8,8 @@ public class Station implements INode {
 	
 	public Station(int ID, String Name) {
 		this.Name = Name;
+		this.ID = ID;
+		
 	}
 
 	@Override

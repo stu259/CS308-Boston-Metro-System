@@ -3,8 +3,9 @@ import java.util.*;
 
 public class Graph implements MultiGraphADT  {
 
+	//Hashmap has Stations instead of INodes because Station is the concrete class and INode is just interface
 	private ArrayList<IEdge> lineList = null;
-	private HashMap<Integer, INode> graph = new HashMap<Integer, INode>();
+	private HashMap<Integer, Station> graph = new HashMap<Integer, Station>();
 
 	
 	public Graph(int N) {
@@ -32,19 +33,16 @@ public class Graph implements MultiGraphADT  {
     
 	@Override
 	public INode getNode(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		return graph.get(id);
 	}
 	
 	/*public boolean isStation(INode station) { // existNode()
 		return (getNode(station))
 	}*/
 	
-
-	@Override
-	public void addNode(INode n) {
-		// TODO Auto-generated method stub
-		
+	
+	public void addNode(int id, String name) {
+		graph.put(id,new Station(id,name));
 	}
 	
     public ArrayList<Integer> successors(int node) 
@@ -54,9 +52,9 @@ public class Graph implements MultiGraphADT  {
            if (lineList.get(i).getIn() == node)
              successorNodes.add(lineList.get(i).getOut());
         return successorNodes;
-    };
-
-
-	
+    }
+	@Override
+	public void addNode(INode n) {		
+	};
 
 }

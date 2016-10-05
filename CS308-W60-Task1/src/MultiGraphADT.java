@@ -1,13 +1,6 @@
 import java.util.ArrayList;
-import java.util.List;
 
 public interface MultiGraphADT {
-   
-	//structure of Nodes
-	
-	//Structure of Edges probably List of Edges?
-	
-	//
    
    
    public void search();
