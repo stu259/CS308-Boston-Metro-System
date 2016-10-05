@@ -5,6 +5,8 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.StringTokenizer;
+import java.util.*
+;
 
     /**
      * This class reads a text description of a metro subway system
@@ -49,8 +51,14 @@ import java.util.StringTokenizer;
 
 public class MetroMapParser
 {
-    
+	
+	private ArrayList<Integer> id = null;
+	private ArrayList<String> name = null;
+	private List<String[]> lineColours;
+	private List<int[]> inID;
+	private List<int[]> outID;
     private BufferedReader fileInput;
+    
 
     
     public static void main(String[] args)
@@ -126,8 +134,18 @@ public class MetroMapParser
 	String lineName;
 	String outboundID, inboundID;
 	
+	int counter = 0;
+	
+	int[] inStations = null;
+	inID = new ArrayList<int[]>();
+	int[] outStations = null;
+	outID = new ArrayList<int[]>();
+	String[] colour = null;
+	lineColours = new ArrayList<String[]>();
+	
+	
 	while(line != null)
-	{
+	{	
 
 	    //STUDENT :
 	    //
@@ -146,51 +164,85 @@ public class MetroMapParser
 	    //We want to handle empty lines effectively, we just ignore them!
 	    if(!st.hasMoreTokens())
 	    {
-		line = fileInput.readLine();
-		continue;
+			line = fileInput.readLine();
+			continue;
 	    }
 	    
 	    //from the grammar, we know that the Station ID is the first token on the line
 	    stationID = st.nextToken();
+	    id.add(Integer.parseInt(stationID));
 	    
 	    if(!st.hasMoreTokens())
 	    {
-		throw new Exception("no station name");
+	    	throw new Exception("no station name");
 	    }
 
 	    //from the grammar, we know that the Station Name is the second token on the line.
 	    stationName = st.nextToken();
+	    name.add(stationName);
+	    
 	    
 	    if(!st.hasMoreTokens())
 	    {
-		throw new Exception("station is on no lines");
+	    	throw new Exception("station is on no lines");
 	    }
 	    
 
 	    while(st.hasMoreTokens())
 	    {
-		lineName = st.nextToken();
+			lineName = st.nextToken();
+				
+			if(!st.hasMoreTokens())
+			{
+			    throw new Exception("poorly formatted line info");
+			}
+	
+			outboundID = st.nextToken();
 			
-		if(!st.hasMoreTokens())
-		{
-		    throw new Exception("poorly formatted line info");
-		}
-
-		outboundID = st.nextToken();
-		
-		if(!st.hasMoreTokens())
-		{
-		    throw new Exception("poorly formatted adjacent stations");
-		}
-
-		inboundID = st.nextToken();
+			if(!st.hasMoreTokens())
+			{
+			    throw new Exception("poorly formatted adjacent stations");
+			}
+	
+			inboundID = st.nextToken();
+			
+			colour[counter] = lineName;
+			inStations[counter] = Integer.parseInt(inboundID);
+			outStations[counter] = Integer.parseInt(outboundID);
+			counter++;
 	    }
-	    	
+	    
+	    inID.add(inStations);
+	    outID.add(outStations);
+	    lineColours.add(colour);
+	    inStations = null;
+	    outStations = null;
+	    colour = null;
 		
 	    line = fileInput.readLine();
 	}
 	
        
+    }
+    
+    public int getStationID(int idNum){
+    	return id.get(idNum);
+    }
+    
+    public String getStationName(int idNum){
+    	return name.get(idNum);
+    }
+    
+    public int[] getInID(int idNum){
+    	return inID.get(idNum);
+    }
+    
+    public int[] getOutID(int idNum){
+    	return outID.get(idNum);
+    }
+    
+    public String[] getColours(int idNum){
+    	return lineColours.get(idNum);
     }
 
     
