@@ -28,6 +28,7 @@ public class CLIDisplay implements IDisplay{
 	public int getChoiceOptions(String[] options, String promptMessage) {
 		// TODO Auto-generated method stub
 		boolean validInput = false;
+		System.out.println("---Entered");
 		
 		int startingOptionNum = 1;
 		int currOptionNum;
@@ -70,7 +71,7 @@ public class CLIDisplay implements IDisplay{
 			}
 		}
 		
-		return 0;
+		return chosenOption;
 	}
 
 	@Override
@@ -101,6 +102,25 @@ public class CLIDisplay implements IDisplay{
 				validInput = false;
 			}
 		}
+		return userInput;
+	}
+	
+	public String getUserInput(String promptMessage){
+		
+		scan = new Scanner(System.in);
+		boolean validInput = false;
+		String userInput = null;
+		while(!validInput){
+			System.out.println(promptMessage);
+			userInput = scan.nextLine();
+			
+			if((userInput.matches("[0-9]+"))){ //pattern matching and checking if the user only entered numbers
+				System.out.println("You entered numbers only, that's not a station name...");
+			}
+			else
+				validInput = true;
+		}
+		
 		return userInput;
 	}
 

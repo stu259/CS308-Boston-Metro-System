@@ -17,4 +17,6 @@ public interface IDisplay extends java.io.Serializable{
 	
 	public abstract int getInt(int minLimit, int maxLimit, String promptMessage);
 	
+	public abstract String getUserInput(String promptMessage);
+	
 }
