@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public interface MultiGraphADT {
@@ -16,6 +17,9 @@ public interface MultiGraphADT {
    public void addNode(INode n);
    
    public INode getNode(int id);
+   
+   ArrayList<Integer> successors(int node);
+
       
    
 
