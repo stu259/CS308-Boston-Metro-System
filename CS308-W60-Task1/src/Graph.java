@@ -5,13 +5,10 @@ public class Graph implements MultiGraphADT  {
 
 	private ArrayList<IEdge> lineList = null;
 	private HashMap<Integer, INode> graph = new HashMap<Integer, INode>();
-	private int NumNodes;
-	
 
 	
 	public Graph(int N) {
 		lineList = new ArrayList<IEdge>();
-		this.NumNodes = N;
 		
 	}
 	@Override
@@ -26,10 +23,6 @@ public class Graph implements MultiGraphADT  {
 	        IEdge edge = new Line(n1,n2, color);
 	        lineList.add(edge);
 		
-	}
-
-	public int nNodes() {
-		return NumNodes;
 	}
 
     public int nEdges()

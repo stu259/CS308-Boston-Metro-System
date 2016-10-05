@@ -15,7 +15,7 @@ public class Line implements IEdge{
 		int inCopy = this.in;
 		return inCopy;
 	}
-	
+	 
 	public int getOut(){
 		int outCopy = this.out;
 		return outCopy;
