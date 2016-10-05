@@ -1,3 +1,4 @@
+import java.util.List;
 
 public interface MultiGraphADT {
    
@@ -7,12 +8,15 @@ public interface MultiGraphADT {
 	
 	//
    
-   public Node getStations();
    
    public void search();
    
-   public void addLine(Node n1, Node n2, String color);
+   public void addEdge(INode n1, INode n2, String color);
    
-   public void removeLine(Node n1, Node n2, String color);
+   public void addNode(INode n);
+   
+   public INode getNode(int id);
+      
+   
 
    }
