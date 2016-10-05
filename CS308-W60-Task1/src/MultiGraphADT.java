@@ -12,7 +12,7 @@ public interface MultiGraphADT {
    
    public void search();
    
-   public void addEdge(INode n1, INode n2, String color);
+   public void addEdge(int n1, int n2, String color);
    
    public void addNode(INode n);
    

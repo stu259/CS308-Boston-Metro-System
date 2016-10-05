@@ -6,7 +6,7 @@ public class Station implements INode {
 	private int ID;
 	private ArrayList<Line> lines;
 	
-	public Station(String Name) {
+	public Station(int ID, String Name) {
 		this.Name = Name;
 	}
 

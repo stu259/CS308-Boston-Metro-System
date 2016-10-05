@@ -4,7 +4,7 @@ import java.util.*;
 public class Graph implements MultiGraphADT  {
 
 	private ArrayList<IEdge> lineList = null;
-    List<INode>[]	adjList;
+    List<Integer>[]	adjList;
 	HashMap<Integer, INode> graph = new HashMap<Integer, INode>();
 	private int NumNodes;
 	
@@ -14,7 +14,7 @@ public class Graph implements MultiGraphADT  {
 		lineList = new ArrayList<IEdge>();
         adjList = new List[N];
 		for(int i = 0; i < N; ++i) {
-            adjList[i] = new ArrayList<INode>();
+            adjList[i] = new ArrayList<Integer>();
 		}
 		this.NumNodes = N;
 		
@@ -26,12 +26,12 @@ public class Graph implements MultiGraphADT  {
 	}
 
 	@Override
-	public void addEdge(INode n1, INode n2, String color) {
+	public void addEdge(int n1, int n2, String color) {
 		lineList.add(new Line(n1, n2, color));
 	        IEdge edge = new Line(n1,n2, color);
 	        lineList.add(edge);
-	        adjList[n1.getId()].add(n2);
-	        adjList[n2.getId()].add(n1);
+	        adjList[n1].add(n2);
+	        adjList[n2].add(n1);
 		
 	}
 

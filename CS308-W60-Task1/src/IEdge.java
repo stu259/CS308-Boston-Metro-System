@@ -5,13 +5,9 @@ public interface IEdge {
 	INode in = null;
 	INode out = null;
 	
-	public INode getIn();
+	public int getIn();
 
-	public INode getOut();
-	
-	public void setIn(INode node);
-	
-	public void setOut(INode node);
+	public int getOut();
 	
 	public boolean isVisited();
 	
