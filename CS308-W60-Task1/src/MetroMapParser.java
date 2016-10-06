@@ -5,8 +5,6 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.StringTokenizer;
-import java.util.*
-;
 
     /**
      * This class reads a text description of a metro subway system
@@ -51,37 +49,31 @@ import java.util.*
 
 public class MetroMapParser
 {
-	//arrays for capturing data from the file
-	private ArrayList<Integer> id = new ArrayList<>();
-	private ArrayList<String> name = new ArrayList<>();
-	private List<ArrayList<String>> lineColours;
-	private List<ArrayList<Integer>> inID;
-	private List<ArrayList<Integer>> outID;
-    private BufferedReader fileInput;
     
+    private BufferedReader fileInput;
 
     
     public static void main(String[] args)
     {
-		
-		if(args.length != 1)
-		{
-		    usage();
-		    System.exit(0);
-		}
 	
-		String filename = args[0];
-		
-		
-		try
-		{
-		    MetroMapParser mmp = new MetroMapParser(filename);
-		    mmp.generateGraphFromFile();
-		}
-		catch(Exception e)
-		{
-		    e.printStackTrace();
-		}
+	if(args.length != 1)
+	{
+	    usage();
+	    System.exit(0);
+	}
+
+	String filename = args[0];
+	
+	
+	try
+	{
+	    MetroMapParser mmp = new MetroMapParser(filename);
+	    mmp.generateGraphFromFile();
+	}
+	catch(Exception e)
+	{
+	    e.printStackTrace();
+	}
     }
 
 
@@ -90,6 +82,8 @@ public class MetroMapParser
 	//prints a usage message to System.out
 	System.out.println("java ex3.MetroMapParser <filename>");
     }
+
+    
 
     
     /**
@@ -132,22 +126,9 @@ public class MetroMapParser
 	String lineName;
 	String outboundID, inboundID;
 	
-	//for counting the number of lines a station is on
-	int counter = 0;
-	
-	//initialising the arrays for storing the line data
-	ArrayList<Integer> inStations = new ArrayList<Integer>();
-	inID = new ArrayList<ArrayList<Integer>>();
-	ArrayList<Integer> outStations = new ArrayList<Integer>();
-	outID = new ArrayList<ArrayList<Integer>>();
-	ArrayList<String> colour = new ArrayList<String>();
-	lineColours = new ArrayList<ArrayList<String>>();
-	
-	
 	while(line != null)
-	{	
-		
-		
+	{
+
 	    //STUDENT :
 	    //
 	    //in this loop, you must collect the information necessary to 
@@ -165,109 +146,51 @@ public class MetroMapParser
 	    //We want to handle empty lines effectively, we just ignore them!
 	    if(!st.hasMoreTokens())
 	    {
-			line = fileInput.readLine();
-			continue;
+		line = fileInput.readLine();
+		continue;
 	    }
 	    
 	    //from the grammar, we know that the Station ID is the first token on the line
 	    stationID = st.nextToken();
-	    id.add(Integer.parseInt(stationID));
-	    
 	    
 	    if(!st.hasMoreTokens())
 	    {
-	    	throw new Exception("no station name");
+		throw new Exception("no station name");
 	    }
 
 	    //from the grammar, we know that the Station Name is the second token on the line.
 	    stationName = st.nextToken();
-	    name.add(stationName);
-	    
 	    
 	    if(!st.hasMoreTokens())
 	    {
-	    	throw new Exception("station is on no lines");
+		throw new Exception("station is on no lines");
 	    }
 	    
 
 	    while(st.hasMoreTokens())
 	    {
-			lineName = st.nextToken();
-				
-			if(!st.hasMoreTokens())
-			{
-			    throw new Exception("poorly formatted line info");
-			}
-	
-			outboundID = st.nextToken();
+		lineName = st.nextToken();
 			
-			if(!st.hasMoreTokens())
-			{
-			    throw new Exception("poorly formatted adjacent stations");
-			}
-	
-			inboundID = st.nextToken();
-			
-			
-			/*needs comments here and below*/
-			colour.add(lineName);
-			inStations.add(Integer.parseInt(inboundID));
-			outStations.add(Integer.parseInt(outboundID));
-			counter++;
+		if(!st.hasMoreTokens())
+		{
+		    throw new Exception("poorly formatted line info");
+		}
+
+		outboundID = st.nextToken();
+		
+		if(!st.hasMoreTokens())
+		{
+		    throw new Exception("poorly formatted adjacent stations");
+		}
+
+		inboundID = st.nextToken();
 	    }
-	    
-	    inID.add(inStations);
-	    outID.add(outStations);
-	    lineColours.add(colour);
-	    inStations = new ArrayList<Integer>();
-	    outStations = new ArrayList<Integer>();
-	    colour = new ArrayList<String>();
-	    counter = 0;
+	    	
 		
 	    line = fileInput.readLine();
 	}
 	
        
-    }
-    
-    public int getStationID(int idNum){
-    	return id.get(idNum);
-    }
-    
-    public String getStationName(int idNum){
-    	return name.get(idNum);
-    }
-    
-    /**
-     * 
-     * @param idNum
-     * @return a list of all inbound nodes connected to the node with id idNum
-     */
-    public ArrayList<Integer> getInID(int idNum){
-    	return inID.get(idNum);
-    }
-    /**
-     * 
-     * @param idNum
-     * @return a list of all outbound nodes connected to the node with id idNum
-     */
-    
-    public ArrayList<Integer> getOutID(int idNum){
-    	return outID.get(idNum);
-    }
-    
-    /**
-     * 
-     * @param idNum
-     * @return a list of all colours for the node with id idNum
-     */
-    
-    public ArrayList<String> getColours(int idNum){
-    	return lineColours.get(idNum);
-    }
-    
-    public int getNumNodes(){
-    	return id.size();
     }
 
     

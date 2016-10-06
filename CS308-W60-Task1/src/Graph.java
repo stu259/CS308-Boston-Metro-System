@@ -1,55 +1,31 @@
 import java.util.*;
-
-
 public class Graph implements MultiGraphADT  {
-
-	//Hashmap has Stations instead of INodes because Station is the concrete class and INode is just interface
-	private ArrayList<IEdge> lineList = null;
-	private HashMap<Integer, Station> graph = new HashMap<Integer, Station>();
-
 	
-	public Graph(int N) {
-		lineList = new ArrayList<IEdge>();
-		
+	//Hashmap has Stations instead of INodes because Station is the concrete class and INode is just interface
+	private ArrayList<Line>lineList;
+	private HashMap<Integer, Station> graph = new HashMap<Integer, Station>();
+	
+	public Graph(int N) 
+	{
+		lineList = new ArrayList<Line>();
 	}
-	@Override
-	public void search() {
-		// TODO Auto-generated method stub
-
-	}
-
+	
 	@Override
 	public void addEdge(int n1, int n2, String color) {
-		if(!(isEdge(n1, n2, color))){
-			lineList.add(new Line(n1, n2, color));
-		}
+		Line edge = new Line(n1,n2, color);
+		lineList.add(edge);
+	        
+		
 	}
 	
-    //not sure if this method works
-	public boolean isEdge(int node1, int node2, String label) 
-    {
-        int i=0; 
-        while (i<nEdges())
-        {
-          if ((lineList.get(i).getIn() == node1) && (lineList.get(i).getOut() == node2) && (lineList.get(i).getColour().equals(label)))
-             return true;
-          else if((lineList.get(i).getIn() == node2) && (lineList.get(i).getOut() == node1) && (lineList.get(i).getColour().equals(label)))
-             return true;
-          else{
-        	  i++;
-          }
-        }
-        return false;
-    }
-
-
     public int nEdges()
     {
         return lineList.size();
     }
     
 	@Override
-	public INode getNode(int id) {
+	public INode getNode(int id)
+	{
 		return graph.get(id);
 	}
 	
@@ -58,7 +34,8 @@ public class Graph implements MultiGraphADT  {
 	}*/
 	
 	
-	public void addNode(int id, String name) {
+	public void addNode(int id, String name) 
+	{
 		graph.put(id,new Station(id,name));
 	}
 	
@@ -71,7 +48,67 @@ public class Graph implements MultiGraphADT  {
         return successorNodes;
     }
 	@Override
-	public void addNode(INode n) {		
-	};
+	public void addNode(INode n) 
+	{
+		
+	}
+	
+	public boolean isEdge(int in, int out){
+		int l = 0;
+		boolean found = false;
+		while (!found && l<nEdges())
+		{
+			if ((lineList.get(l).getIn() == in) && (lineList.get(out).getOut() == out))
+				found = true;
+			else
+				l++;
+				
+		}
+		return found;
+	}
 
+	@Override
+	public void search(int start, int finish) {
+		
+		int front,rear, in, out = 0;
+		
+		for(int i = 0; i<nEdges();i++){
+			lineList.get(i).setVisited(false);
+		}
+		
+		ArrayList<Integer> visited = new ArrayList<Integer>();
+		Queue<Integer> route = new LinkedList<Integer>();
+		
+		if(isEdge(start,finish)==true){
+			route.add(start);
+			route.add(finish);
+		}
+		else{
+			visited.add(start);
+			route.add(start);
+			while(!route.isEmpty())
+			{
+				int m = route.remove();
+				in = lineList.get(m).getIn();
+				out = lineList.get(m).getOut();
+				visited.add(in);
+				visited.add(out);
+				if(in == finish){
+					//finish and print route
+				}
+				else if(out == finish){
+					//finish and print route
+				}
+				else{
+					route.add(in);
+					route.add(out);
+				}
+			}
+		}
+		
+		
+		
+	}
+	
+	
 }
