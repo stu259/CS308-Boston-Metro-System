@@ -51,12 +51,12 @@ import java.util.*
 
 public class MetroMapParser
 {
-	
+	//arrays for capturing data from the file
 	private ArrayList<Integer> id = new ArrayList<>();
 	private ArrayList<String> name = new ArrayList<>();
-	private List<String[]> lineColours;
-	private List<int[]> inID;
-	private List<int[]> outID;
+	private List<ArrayList<String>> lineColours;
+	private List<ArrayList<Integer>> inID;
+	private List<ArrayList<Integer>> outID;
     private BufferedReader fileInput;
     
 
@@ -132,19 +132,22 @@ public class MetroMapParser
 	String lineName;
 	String outboundID, inboundID;
 	
+	//for counting the number of lines a station is on
 	int counter = 0;
 	
-	int[] inStations = new int[4];
-	inID = new ArrayList<int[]>();
-	int[] outStations = new int[4];
-	outID = new ArrayList<int[]>();
-	String[] colour = new String[4];
-	lineColours = new ArrayList<String[]>();
+	//initialising the arrays for storing the line data
+	ArrayList<Integer> inStations = new ArrayList<Integer>();
+	inID = new ArrayList<ArrayList<Integer>>();
+	ArrayList<Integer> outStations = new ArrayList<Integer>();
+	outID = new ArrayList<ArrayList<Integer>>();
+	ArrayList<String> colour = new ArrayList<String>();
+	lineColours = new ArrayList<ArrayList<String>>();
 	
 	
 	while(line != null)
 	{	
-
+		
+		
 	    //STUDENT :
 	    //
 	    //in this loop, you must collect the information necessary to 
@@ -207,18 +210,18 @@ public class MetroMapParser
 			
 			
 			/*needs comments here and below*/
-			colour[counter] = lineName;
-			inStations[counter] = Integer.parseInt(inboundID);
-			outStations[counter] = Integer.parseInt(outboundID);
+			colour.add(lineName);
+			inStations.add(Integer.parseInt(inboundID));
+			outStations.add(Integer.parseInt(outboundID));
 			counter++;
 	    }
 	    
 	    inID.add(inStations);
 	    outID.add(outStations);
 	    lineColours.add(colour);
-	    inStations = new int[4];
-	    outStations = new int[4];
-	    colour = new String[4];
+	    inStations = new ArrayList<Integer>();
+	    outStations = new ArrayList<Integer>();
+	    colour = new ArrayList<String>();
 	    counter = 0;
 		
 	    line = fileInput.readLine();
@@ -240,7 +243,7 @@ public class MetroMapParser
      * @param idNum
      * @return a list of all inbound nodes connected to the node with id idNum
      */
-    public int[] getInID(int idNum){
+    public ArrayList<Integer> getInID(int idNum){
     	return inID.get(idNum);
     }
     /**
@@ -249,7 +252,7 @@ public class MetroMapParser
      * @return a list of all outbound nodes connected to the node with id idNum
      */
     
-    public int[] getOutID(int idNum){
+    public ArrayList<Integer> getOutID(int idNum){
     	return outID.get(idNum);
     }
     
@@ -259,7 +262,7 @@ public class MetroMapParser
      * @return a list of all colours for the node with id idNum
      */
     
-    public String[] getColours(int idNum){
+    public ArrayList<String> getColours(int idNum){
     	return lineColours.get(idNum);
     }
     

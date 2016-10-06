@@ -27,9 +27,9 @@ public class Driver {
 	   
 	   //Testing Code
 	   for(int i = 0; i < mmp.getNumNodes(); i++){
-		   for(int j = 0; j < mmp.getInID(i).length; j++){
-			   ms.BostonMS.addEdge(mmp.getInID(i)[j], mmp.getStationID(i), mmp.getColours(i)[j]);
-			   ms.BostonMS.addEdge(mmp.getOutID(i)[j], mmp.getStationID(i), mmp.getColours(i)[j]);
+		   for(int j = 0; j < mmp.getInID(i).size(); j++){
+			   ms.BostonMS.addEdge(mmp.getInID(i).get(j), mmp.getStationID(i), mmp.getColours(i).get(j));
+			   ms.BostonMS.addEdge(mmp.getOutID(i).get(j), mmp.getStationID(i), mmp.getColours(i).get(j));
 			   ms.BostonMS.addNode(mmp.getStationID(i), mmp.getStationName(i));
 		   }
 	   }
