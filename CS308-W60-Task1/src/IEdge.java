@@ -11,6 +11,6 @@ public interface IEdge {
 	
 	public boolean isVisited();
 	
-	public String getColour(INode node);
+	public String getColour();
 	
 }

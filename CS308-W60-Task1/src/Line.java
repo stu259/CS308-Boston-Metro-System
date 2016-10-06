@@ -25,7 +25,7 @@ public class Line implements IEdge{
 		return visited;
 	}
 	
-	public String getColour(INode node) {
+	public String getColour() {
 		return this.colour;
 	}
 

@@ -20,11 +20,28 @@ public class Graph implements MultiGraphADT  {
 
 	@Override
 	public void addEdge(int n1, int n2, String color) {
+		/*if (isEdge(n1, n2, color))
+				return;*/
 		lineList.add(new Line(n1, n2, color));
 	        IEdge edge = new Line(n1,n2, color);
 	        lineList.add(edge);
 		
 	}
+	
+    public boolean isEdge(int node1, int node2, String label) 
+    {
+        int i=0; 
+        boolean found = false;
+        while (!found && i<nEdges())
+        {
+          if ((lineList.get(i).getIn() == node1) && (lineList.get(i).getOut() == node2) && (lineList.get(i).getColour() == label))
+             found = true;
+          else
+             i++;
+        }
+        return found;
+    }
+
 
     public int nEdges()
     {
