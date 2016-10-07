@@ -77,7 +77,7 @@ public class Menu {
 	   System.exit(0);
    }
    
-   //tentative method -- final version will be made after we know how we want the thing to look
+   //tentative method
    public void DisplayRoute(Station[] array){
 	   //boolean linechange = false;
 
