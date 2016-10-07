@@ -1,31 +1,52 @@
 import java.util.*;
+
+
 public class Graph implements MultiGraphADT  {
-	
+
 	//Hashmap has Stations instead of INodes because Station is the concrete class and INode is just interface
-	private ArrayList<Line>lineList;
+	private ArrayList<Line> lineList = null;
 	private HashMap<Integer, Station> graph = new HashMap<Integer, Station>();
+
 	
-	public Graph(int N) 
-	{
+	public Graph(int N) {
 		lineList = new ArrayList<Line>();
-	}
-	
-	@Override
-	public void addEdge(int n1, int n2, String color) {
-		Line edge = new Line(n1,n2, color);
-		lineList.add(edge);
-	        
 		
 	}
+
+	@Override
+	public void addEdge(int n1, int n2, String color) {
+		//if(!(0 == n1 || 0 == n2)){
+			if(!(isEdge(n1, n2, color)))
+				lineList.add(new Line(n1, n2, color));
+			
+		//}
+	}
 	
+    //not sure if this method works
+	public boolean isEdge(int node1, int node2, String label) 
+    {
+        int i=0; 
+        while (i<nEdges())
+        {
+          if ((lineList.get(i).getIn() == node1) && (lineList.get(i).getOut() == node2) && (lineList.get(i).getColour().equals(label)))
+             return true;
+          else if((lineList.get(i).getIn() == node2) && (lineList.get(i).getOut() == node1) && (lineList.get(i).getColour().equals(label)))
+             return true;
+          else{
+        	  i++;
+          }
+        }
+        return false;
+    }
+
+
     public int nEdges()
     {
         return lineList.size();
     }
     
 	@Override
-	public INode getNode(int id)
-	{
+	public INode getNode(int id) {
 		return graph.get(id);
 	}
 	
@@ -34,8 +55,7 @@ public class Graph implements MultiGraphADT  {
 	}*/
 	
 	
-	public void addNode(int id, String name) 
-	{
+	public void addNode(int id, String name) {
 		graph.put(id,new Station(id,name));
 	}
 	
@@ -48,67 +68,84 @@ public class Graph implements MultiGraphADT  {
         return successorNodes;
     }
 	@Override
-	public void addNode(INode n) 
-	{
-		
+	public void addNode(INode n) {		
+	};
+	
+	public boolean isEdge(int n1,int n2){
+		int i=0; 
+        while (i<nEdges())
+        {
+          if ((lineList.get(i).getIn() == n1) && (lineList.get(i).getOut() == n2) 
+        		  || (lineList.get(i).getIn() == n2) && (lineList.get(i).getOut() == n1))
+             return true;
+          else{
+        	  i++;
+          }
+        }
+        return false;
 	}
 	
-	public boolean isEdge(int in, int out){
-		int l = 0;
-		boolean found = false;
-		while (!found && l<nEdges())
-		{
-			if ((lineList.get(l).getIn() == in) && (lineList.get(out).getOut() == out))
-				found = true;
-			else
-				l++;
-				
-		}
-		return found;
-	}
-
 	@Override
-	public void search(int start, int finish) {
+ 	public ArrayList<INode> search(int start, int finish) {
+ 		
+ 		int in = 0, out = 0;
+ 		
+ 		ArrayList<Integer> visited = new ArrayList<Integer>();
+ 		Queue<Integer> q = new LinkedList<Integer>();
+ 		
+ 		if(isEdge(start,finish)){
+ 			q.add(start);
+ 			q.add(finish);
+ 		}
+ 		else{
+ 			visited.add(start);
+ 			q.add(start);
+ 			while(!q.isEmpty())
+ 			{
+ 				int m = q.remove();
+ 				//in = graph.get(m).getLines().get(j).getIn();// J should be variable of the size of number of lines that this node is connected to
+ 				//out = graph.get(m).getLines().get(j).getOut();
+ 				if(in == finish){
+ 					visited.add(in);
+ 					return findPath(visited);
+ 				}
+ 				else if(out == finish){
+ 					visited.add(out);
+ 					return findPath(visited);
+ 				}
+ 				else{
+ 					if(!visited.contains(in) && 0 != in)
+ 						visited.add(in);
+ 					if(!visited.contains(out) && 0 != out)
+ 						visited.add(out);
+ 					if(m != in && 0 != in)
+ 						q.add(in);
+ 					if(m != out && 0 != out)
+ 						q.add(out);
+ 				}
+ 			}
+ 		}
+ 		//we should never get to here as there should always be a path
+ 		return null; 
+ 	}
+	
+	private ArrayList<INode> findPath(ArrayList<Integer> nodes){//dont touch
+		ArrayList<INode> path = new ArrayList<INode>();
 		
-		int front,rear, in, out = 0;
+		path.add(graph.get(nodes.get(nodes.size()-1)));
+
+		int index = nodes.size() - 1;	
 		
-		for(int i = 0; i<nEdges();i++){
-			lineList.get(i).setVisited(false);
-		}
-		
-		ArrayList<Integer> visited = new ArrayList<Integer>();
-		Queue<Integer> route = new LinkedList<Integer>();
-		
-		if(isEdge(start,finish)==true){
-			route.add(start);
-			route.add(finish);
-		}
-		else{
-			visited.add(start);
-			route.add(start);
-			while(!route.isEmpty())
-			{
-				int m = route.remove();
-				in = lineList.get(m).getIn();
-				out = lineList.get(m).getOut();
-				visited.add(in);
-				visited.add(out);
-				if(in == finish){
-					//finish and print route
-				}
-				else if(out == finish){
-					//finish and print route
-				}
-				else{
-					route.add(in);
-					route.add(out);
+		while(index != 0){
+			for(int i = 0; i < index; i ++){	
+				if(isEdge(path.get(path.size()- 1).getId(),nodes.get(i))){
+					path.add(graph.get(nodes.get(i)));
+					index = i;
 				}
 			}
 		}
-		
-		
-		
+		Collections.reverse(path);
+		return path;
 	}
-	
-	
+
 }

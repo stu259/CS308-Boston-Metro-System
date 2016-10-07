@@ -6,53 +6,61 @@ public class Driver {
 	 static MetroMapParser mmp;
 	 
    public static void main(String[] args) {
-      //mainMenu();
 	   
+	   //mainMenu();
+      
 	   try {
 		   mmp = new MetroMapParser("bostonmetro.txt");
 		} catch (IOException e) {
 			//Probably wrong filepath... Derp
 			//We should not get this point so might as well crash if we do.
-			System.exit(0);
+			quit();
 			e.printStackTrace();
 		}
 
 	   try {
-		mmp.generateGraphFromFile();
-	} catch (Exception e) {
-		e.printStackTrace();
-	}
+		   mmp.generateGraphFromFile();
+	   } catch (Exception e) {
+		   e.printStackTrace();
+	   }
 	   
 	   MetroSystem ms = new MetroSystem(mmp.getNumNodes());
 	   
-	   //Testing Code
+	   //Filling the graph in from the parser
 	   for(int i = 0; i < mmp.getNumNodes(); i++){
-		   for(int j = 0; j < mmp.getInID(i).length; j++){
-			   ms.BostonMS.addEdge(mmp.getInID(i)[j], mmp.getStationID(i), mmp.getColours(i)[j]);
-			   ms.BostonMS.addEdge(mmp.getOutID(i)[j], mmp.getStationID(i), mmp.getColours(i)[j]);
+		   for(int j = 0; j < mmp.getInID(i).size(); j++){
+			   ms.BostonMS.addEdge(mmp.getInID(i).get(j), mmp.getStationID(i), mmp.getColours(i).get(j));
+			   ms.BostonMS.addEdge(mmp.getOutID(i).get(j), mmp.getStationID(i), mmp.getColours(i).get(j));
 			   ms.BostonMS.addNode(mmp.getStationID(i), mmp.getStationName(i));
 		   }
 	   }
+	   //Testing Code
+	   /*System.out.println("number of edges " + ms.BostonMS.nEdges());
 	   
 	   for(int i = 1 ; i <= 124; i++){
 		   INode s = ms.BostonMS.getNode(i);
 		   System.out.println(s.getId() + " "+ s.getName());
 		   
+	   }	  */ 
+	   
+	   
+	   for(INode n: ms.BostonMS.search(1, 3)){
+		   System.out.println(n.getId() + " " + n.getName());
+		   
 	   }
+	   System.out.println("Finished");
 	   
 	   //End of testing code
    }
    
-   public void reader() {
-      // TODO implement this operation
-      throw new UnsupportedOperationException("not implemented");
-   }
    
-   public void display() {
-      // TODO implement this operation
-      throw new UnsupportedOperationException("not implemented");
-   }
-   
+   /*
+    * All the methods below could be in the class and be called from the main 
+    * by display.mainmenu();
+    * Also the display can be initialised in the main without making it private static
+    * like CLIDisplay display = new CLIDisplay
+    * and then display.mainmenu();
+    * */
    private static void mainMenu(){
 		
 		System.out.println("Welcome to W6 Boston Metro System");
@@ -64,7 +72,7 @@ public class Driver {
 			
 			case 2: helloWorld(); break;
 			
-			case 3: Quit(); break;
+			case 3: quit(); break;
 		};
 		
 	}
@@ -83,8 +91,9 @@ public class Driver {
 	   System.out.println("HelloWorld!");
    }
    
+   //Could use integer as parameter and pass it to exit()
    //Quit System
-   private static void Quit(){
+   private static void quit(){
 	   System.exit(0);
    }
    

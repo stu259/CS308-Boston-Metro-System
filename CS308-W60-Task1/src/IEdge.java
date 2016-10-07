@@ -1,7 +1,6 @@
 
 public interface IEdge {
-
-	boolean visited = false;	
+	
 	INode in = null;
 	INode out = null;
 	
@@ -9,10 +8,6 @@ public interface IEdge {
 
 	public int getOut();
 	
-	public boolean isVisited();
-	
-	public String getColour(INode node);
-	
-	public void setVisited(boolean b);
+	public String getColour();
 	
 }
