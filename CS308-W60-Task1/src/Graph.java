@@ -39,6 +39,9 @@ public class Graph implements MultiGraphADT  {
         return false;
     }
 
+	public HashMap<Integer,Station> getStationList(){
+		return graph;
+	}
 
     public int nEdges()
     {

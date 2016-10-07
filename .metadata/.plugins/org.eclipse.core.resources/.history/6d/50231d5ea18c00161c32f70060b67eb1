@@ -1,0 +1,81 @@
+
+public class Menu {
+	
+	
+	private static CLIDisplay display = new CLIDisplay();
+	private static MetroSystem ms;
+	
+	public Menu(MetroSystem system){
+		ms = system;
+		mainMenu();
+		
+	}
+	
+	  
+   private static void mainMenu(){
+		
+		System.out.println("Welcome to W6 Boston Metro System");
+		
+		String[] mainMenu= { "Get Directions", "Do Other Shit?", "Quit Application"	};
+		
+		switch(display.getChoiceOptions(mainMenu, "What would you like to do?")){
+			case 1: directionMenu(); break;
+			
+			case 2: helloWorld(); break;
+			
+			case 3: quit(); break;
+		};
+		
+	}
+   
+   //tentative
+   private static void directionMenu(){
+	   String userinputFrom = display.getUserInput("What station are you going from?");
+	   String fromStation = null;
+	   
+	   for(int i = 1 ; i <= ms.BostonMS.getStationList().size(); i++){
+		   INode s = ms.BostonMS.getNode(i);
+		   System.out.println(s.getId() + " "+ s.getName());
+		   if (userinputFrom.equals(s.getName())){
+			   //User is not stupid and input is correct
+			   fromStation = s.getName();
+		   }
+	   }	  
+	   ///////////////////
+		   
+	   String userInputTo = display.getUserInput("Which station are you going to?");
+	   String toStation = null;
+	   for(int i = 1 ; i <= ms.BostonMS.getStationList().size(); i++){
+		   INode s = ms.BostonMS.getNode(i);
+		   System.out.println(s.getId() + " "+ s.getName());
+		   if (userInputTo.equals(s.getName())){
+			   //User is not stupid and input is correct
+			   toStation = s.getName();
+		   }
+	   }
+	   
+	   
+	   System.out.println("You're going from "+fromStation+" to "+toStation);
+	   System.out.println("to be continued ....");
+   }
+   
+   //shitty feature placeholder
+   private static void helloWorld(){
+	   System.out.println("HelloWorld!");
+   }
+   
+   //Could use integer as parameter and pass it to exit()
+   //Quit System
+   private static void quit(){
+	   System.exit(0);
+   }
+   
+   public void DisplayRoute(Station[] array){
+	   boolean linechange = false;
+	   
+	   for(Station x: array){
+		   
+	   }
+	   
+   }
+}

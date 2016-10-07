@@ -28,7 +28,6 @@ public class CLIDisplay implements IDisplay{
 	public int getChoiceOptions(String[] options, String promptMessage) {
 		// TODO Auto-generated method stub
 		boolean validInput = false;
-		System.out.println("---Entered");
 		
 		int startingOptionNum = 1;
 		int currOptionNum;

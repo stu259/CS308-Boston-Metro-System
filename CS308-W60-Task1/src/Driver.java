@@ -1,20 +1,21 @@
 import java.io.IOException;
+import java.util.HashMap;
 
 public class Driver {
 	
-	 private static CLIDisplay display = new CLIDisplay();
+	 
 	 static MetroMapParser mmp;
+	 
 	 
    public static void main(String[] args) {
 	   
-	   //mainMenu();
       
 	   try {
 		   mmp = new MetroMapParser("bostonmetro.txt");
 		} catch (IOException e) {
 			//Probably wrong filepath... Derp
 			//We should not get this point so might as well crash if we do.
-			quit();
+		//	quit();
 			e.printStackTrace();
 		}
 
@@ -34,67 +35,35 @@ public class Driver {
 			   ms.BostonMS.addNode(mmp.getStationID(i), mmp.getStationName(i));
 		   }
 	   }
-	   //Testing Code
-	   /*System.out.println("number of edges " + ms.BostonMS.nEdges());
+	   HashMap<Integer, Station> stationList = ms.BostonMS.getStationList();
 	   
-	   for(int i = 1 ; i <= 124; i++){
-		   INode s = ms.BostonMS.getNode(i);
-		   System.out.println(s.getId() + " "+ s.getName());
+//	   for(int i = 0; i <= stationList.size(); i++){
+//		   System.out.println(stationList.get(i).getName());
+//		   
+//		   // compare the userinput with the station.getName
+//	   }
+//	   //Testing Code
+//	   System.out.println("number of edges " + ms.BostonMS.nEdges());
+//	   
+//	   for(int i = 1 ; i <= ms.BostonMS.getStationList().size(); i++){
+//		   INode s = ms.BostonMS.getNode(i);
+//		   System.out.println(s.getId() + " "+ s.getName());
+//		  
+//	   }	  
+	   
+	   
+	//   for(INode n: ms.BostonMS.search(1, 3)){
+	//	   System.out.println(n.getId() + " " + n.getName());
 		   
-	   }	  */ 
-	   
-	   
-	   for(INode n: ms.BostonMS.search(1, 3)){
-		   System.out.println(n.getId() + " " + n.getName());
-		   
-	   }
-	   System.out.println("Finished");
+	//   }
+//	   System.out.println("Finished");
 	   
 	   //End of testing code
-   }
-   
-   
-   /*
-    * All the methods below could be in the class and be called from the main 
-    * by display.mainmenu();
-    * Also the display can be initialised in the main without making it private static
-    * like CLIDisplay display = new CLIDisplay
-    * and then display.mainmenu();
-    * */
-   private static void mainMenu(){
-		
-		System.out.println("Welcome to W6 Boston Metro System");
-		
-		String[] mainMenu= { "Get Directions", "Do Other Shit?", "Quit Application"	};
-		
-		switch(display.getChoiceOptions(mainMenu, "What would you like to do?")){
-			case 1: directionMenu(); break;
-			
-			case 2: helloWorld(); break;
-			
-			case 3: quit(); break;
-		};
-		
-	}
-   
-   //tentative
-   private static void directionMenu(){
-	   String from = display.getUserInput("What station are you going from?");
-	   String to = display.getUserInput("Which station are you going to?");
 	   
-	   System.out.println("You're going from "+from+" to "+to);
-	   System.out.println("to be continued ....");
+	//   MetroSystem ms_copy = new MetroSystem(mmp.getNumNodes());
+	 //  ms_copy = ms;
+	   new Menu(ms);
    }
-   
-   //shitty feature placeholder
-   private static void helloWorld(){
-	   System.out.println("HelloWorld!");
-   }
-   
-   //Could use integer as parameter and pass it to exit()
-   //Quit System
-   private static void quit(){
-	   System.exit(0);
-   }
+
    
    }
