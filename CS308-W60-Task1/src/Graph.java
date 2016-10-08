@@ -18,7 +18,7 @@ public class Graph implements MultiGraphADT {
 
     @Override
     public void addEdge(int n1, int n2, String color) {
-        if (!(isEdge(n1, n2, color))) {
+       if (!(isEdge(n1, n2, color))) {
             nodeEdges.get(n1).add(new Line(n1, n2, color));
             nodeEdges.get(n2).add(new Line(n1, n2, color));
         }
@@ -26,6 +26,12 @@ public class Graph implements MultiGraphADT {
 
     //not sure if this method works
     private boolean isEdge(int node1, int node2, String label) {
+        if (!nodeEdges.containsKey(node1)) {
+            nodeEdges.put(node1, new HashSet<>());
+        }
+        if (!nodeEdges.containsKey(node2)) {
+            nodeEdges.put(node2, new HashSet<>());
+        }
         for (IEdge edge : nodeEdges.get(node1)) {
             if (edge.getIn() == node2 && edge.getColour().equals(label)
                     || edge.getOut() == node2 && edge.getColour().equals(label)) {
@@ -57,11 +63,11 @@ public class Graph implements MultiGraphADT {
 		return (getNode(station))
 	}*/
 
+    public boolean isNode(int node) {
+        return nodeEdges.containsKey(node);
+    }
 
     public void addNode(int id, String name) {
-        if (!nodeEdges.containsKey(id)) {
-            nodeEdges.put(id, new HashSet<>());
-        }
         graph.put(id, new Station(id, name));
     }
 
