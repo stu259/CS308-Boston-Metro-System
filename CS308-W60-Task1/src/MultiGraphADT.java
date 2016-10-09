@@ -11,7 +11,7 @@ public interface MultiGraphADT {
    
    public INode getNode(int id);
    
-   ArrayList<Integer> successors(int node);
+   //ArrayList<Integer> successors(int node);
 
       
    
