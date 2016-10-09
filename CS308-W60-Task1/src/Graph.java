@@ -98,7 +98,7 @@ public class Graph implements MultiGraphADT {
         	for(int out: outNodes){
         		if(out == finish){
         	    	visited.add(out);
-        	    	break;
+        	    	return findPath(visited);
         	    }
         	    if(!visited.contains(out) && out != 0 && !q.contains(out)){
             	    q.add(out);	

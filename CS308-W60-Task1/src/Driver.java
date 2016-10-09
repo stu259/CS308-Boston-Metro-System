@@ -52,7 +52,7 @@ public class Driver {
 //	   }	  
 	   
 	   
-	   for(INode n: ms.BostonMS.search(1, 3)){
+	   for(INode n: ms.BostonMS.search(14, 22)){
 		   System.out.println(n.getId() + " " + n.getName());
 	   }
 //	   System.out.println("Finished");
