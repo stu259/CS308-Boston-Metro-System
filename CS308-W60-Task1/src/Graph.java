@@ -69,7 +69,7 @@ public class Graph implements MultiGraphADT {
         graph.put(id, new Station(id, name));
     }
 
-    public ArrayList<Integer> successors(int node) {
+    private ArrayList<Integer> successors(int node) {
         ArrayList<Integer> successorNodes = new ArrayList<>();
         Iterator<IEdge> iter = nodeEdges.get(node).iterator();
     	while (iter.hasNext()) {

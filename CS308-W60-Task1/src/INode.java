@@ -1,7 +1,5 @@
 import java.util.ArrayList;
 
-// needs comments by Aaron3
-
 
 public interface INode {
 

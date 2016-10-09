@@ -1,10 +1,11 @@
-import java.util.*;
+//import java.util.*;
 
 public class Station implements INode {
 	
 	private String Name;
 	private int ID;
-	private ArrayList<Line> lines;
+	//don't think we need this anymore
+	//private ArrayList<Line> lines;
 	
 	public Station(int ID, String Name) {
 		this.Name = Name;
@@ -15,7 +16,6 @@ public class Station implements INode {
 	@Override
 	public void setName(String value) {
 		this.Name = value;
-
 	}
 
 	@Override
@@ -34,8 +34,11 @@ public class Station implements INode {
 		return this.ID;
 	}
 	
+	//don't think we need this anymore
+	/*
 	public ArrayList<IEdge> getLines() {
 		return new ArrayList<IEdge>(this.lines);
 	}
+	*/
 
 }
