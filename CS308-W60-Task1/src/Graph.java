@@ -134,7 +134,8 @@ public class Graph implements MultiGraphADT {
     
     private ArrayList<INode> findPath(ArrayList<Integer> nodes) {
         ArrayList<INode> path = new ArrayList<>();
-
+        
+        //add finish to the path
         path.add(graph.get(nodes.get(nodes.size() - 1)));
 
         int index = nodes.size() - 1;
@@ -142,7 +143,7 @@ public class Graph implements MultiGraphADT {
 
         while (index != 0) {
         	connectedNodes = new ArrayList<Integer>();
-        	Iterator<IEdge> iter = nodeEdges.get(index).iterator();
+        	Iterator<IEdge> iter = nodeEdges.get(nodes.get(index)).iterator();
         	while (iter.hasNext()) {
         		connectedNodes.add(iter.next().getOut());
         	}
