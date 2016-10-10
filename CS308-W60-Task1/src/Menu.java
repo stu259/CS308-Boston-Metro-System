@@ -18,15 +18,15 @@ public class Menu {
 		System.out.println("Welcome to W6 Boston Metro System");
 		
 		String[] mainMenu= { "Get Directions", "List All Stations", "Quit Application"	};
-		
-		switch(display.getChoiceOptions(mainMenu, "What would you like to do?")){
-			case 1: directionMenu(); break;
-			
-			case 2: listStations(); break;
-			
-			case 3: quit(); break;
-		};
-		
+		while(true){
+			switch(display.getChoiceOptions(mainMenu, "What would you like to do?")){
+				case 1: directionMenu(); break;
+				
+				case 2: listStations(); break;
+				
+				case 3: quit(); break;
+			};
+		}
 	}
    
    //tentative
@@ -63,7 +63,7 @@ public class Menu {
 			   			checkFrom = true;
 			   			break;
 			   		case 2:
-			   			fromStation = fromStationList.get(1).getId();
+			   			fromStation = fromStationList.get(0).getId();
 			   			checkFrom = true;
 			   			break;
 			   }
@@ -98,11 +98,11 @@ public class Menu {
 			   
 			   switch(userChoice){
 		   		case 1:
-		   			toStation = fromStationList.get(0).getId();
+		   			toStation = toStationList.get(0).getId();
 		   			checkTo = true;
 		   			break;
 		   		case 2:
-		   			toStation = fromStationList.get(1).getId();
+		   			toStation = toStationList.get(0).getId();
 		   			checkTo = true;
 		   			break;
 		   }
