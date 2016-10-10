@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 
 public class Menu {
 	
@@ -16,12 +17,12 @@ public class Menu {
 		
 		System.out.println("Welcome to W6 Boston Metro System");
 		
-		String[] mainMenu= { "Get Directions", "Do Other Shit?", "Quit Application"	};
+		String[] mainMenu= { "Get Directions", "List All Stations", "Quit Application"	};
 		
 		switch(display.getChoiceOptions(mainMenu, "What would you like to do?")){
 			case 1: directionMenu(); break;
 			
-			case 2: helloWorld(); break;
+			case 2: listStations(); break;
 			
 			case 3: quit(); break;
 		};
@@ -31,44 +32,103 @@ public class Menu {
    //tentative
    private static void directionMenu(){
 	   boolean checkFrom = false, checkTo = false;
-	   String fromStation= null, toStation = null;
+	   int fromStation= 0, toStation = 0;
+	   
+	   ArrayList<INode> toStationList = new ArrayList<>();
+	   ArrayList<INode> fromStationList = new ArrayList<>();
+	   
+	   String promptMessage = "What station are you going from?";
+	   
 	   while(!checkFrom){
-		   String userInputFrom = display.getUserInput("What station are you going from?");
+		   String userInputFrom = display.getUserInput(promptMessage);
+		   userInputFrom = userInputFrom.toLowerCase();
 
 		   for(int i = 1 ; i <= ms.BostonMS.getStationList().size(); i++){
 			   INode s = ms.BostonMS.getNode(i);
 			   
-			   if (userInputFrom.equals(s.getName())){
-				   //User is not stupid and input is correct
-				   fromStation = s.getName();
-				   checkFrom = true;
-				   break;
+			   if (userInputFrom.equals(s.getName().toLowerCase())){
+
+				   fromStationList.add(s);
 			   }
 		   }
+
+		   if(fromStationList.size() > 1){
+			   
+			   String[] options = generateStationList(fromStationList);
+			   int userChoice = display.getChoiceOptions(options, "Which Station did you mean?");
+			   
+			   switch(userChoice){
+			   		case 1:
+			   			fromStation = fromStationList.get(0).getId();
+			   			checkFrom = true;
+			   			break;
+			   		case 2:
+			   			fromStation = fromStationList.get(1).getId();
+			   			checkFrom = true;
+			   			break;
+			   }
+			   
+		   }
+		   else if(fromStationList.size() == 1){
+			   fromStation = fromStationList.get(0).getId();
+			   checkFrom = true;
+		   }
+	   promptMessage = "Wanna re-enter the station name?";
 	   }
-	
+	  
+	   promptMessage = "Which station are you going to?";
 	   while(!checkTo){
-		   String userInputTo = display.getUserInput("Which station are you going to?");
+		   String userInputTo = display.getUserInput(promptMessage);
+		   userInputTo = userInputTo.toLowerCase();
 		   for(int i = 1 ; i <= ms.BostonMS.getStationList().size(); i++){
 			   INode s = ms.BostonMS.getNode(i);
-			   if (userInputTo.equals(s.getName())){
+			   
+			   if (userInputTo.equals(s.getName().toLowerCase())){
 				   //User is not stupid and input is correct
-				   toStation = s.getName();
-				   checkTo = true;
-				   break;
+				   toStationList.add(s);
+				   
 			   }
 		   }
+		   
+		   if(toStationList.size() > 1){
+
+			   String[] options = generateStationList(toStationList);
+			   
+			   int userChoice = display.getChoiceOptions(options, "Which Station did you mean?");
+			   
+			   switch(userChoice){
+		   		case 1:
+		   			toStation = fromStationList.get(0).getId();
+		   			checkTo = true;
+		   			break;
+		   		case 2:
+		   			toStation = fromStationList.get(1).getId();
+		   			checkTo = true;
+		   			break;
+		   }
+		   }
+		   else if (toStationList.size() == 1){
+			   toStation = toStationList.get(0).getId();
+			   checkTo = true;
+		   }
+	   promptMessage = "Wanna re-enter the station name?";
 	   }
 	   
-	   System.out.println("You're going from "+fromStation+" to "+toStation);
-	   System.out.println("to be continued ....");
+	   
+	   System.out.println("NOW!, we search!");
+	   for(INode n: ms.BostonMS.search(fromStation, toStation)){
+		   System.out.println(n.getId() + " " + n.getName());
+	   }
+
 	   
 	   // add search caller here! 
    }
    
    //shitty feature placeholder
-   private static void helloWorld(){
-	   System.out.println("HelloWorld!");
+   private static void listStations(){
+	   for(int i=1; i<ms.BostonMS.getStationList().size()+1; i++){
+		   System.out.println(ms.BostonMS.getNode(i).getId()+" Name: "+ms.BostonMS.getNode(i).getName());
+	   }
    }
    
    //Could use integer as parameter and pass it to exit()
@@ -89,5 +149,18 @@ public class Menu {
 	   
 	   System.out.println("Mind the Gap, between the train and the platform...");
 	   
+   }
+   
+   private static String[] generateStationList(ArrayList<INode> array){
+	   String options[] = new String [2];
+	   for(int i=0; i<array.size(); i++){
+		  String tempcolor = ms.BostonMS.getColourList(array.get(i).getId()).get(0);
+		   
+		  String neighbour = ms.BostonMS.getNeighbour(array.get(i).getId()).getName();
+		  
+		   options[i] = array.get(i).getName() +" on line "+ tempcolor + " alongside " +neighbour+" station?";
+	   }
+	   
+	   return options;
    }
 }

@@ -118,7 +118,9 @@ public class CLIDisplay implements IDisplay{
 			}
 			else
 				validInput = true;
+			
 		}
+		
 		
 		return userInput;
 	}

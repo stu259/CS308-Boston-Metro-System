@@ -56,6 +56,19 @@ public class Graph implements MultiGraphADT {
     public INode getNode(int id) {
         return graph.get(id);
     }
+    
+    public List<String> getColourList(int id) {
+    	List<String> colourList = new ArrayList<>();
+    	for(IEdge edge : nodeEdges.get(id)) {
+    		if(!colourList.contains(edge.getColour()))
+    			colourList.add(edge.getColour());
+    	}
+    	return colourList;
+    }
+    
+    public INode getNeighbour(int id){
+    	return graph.get(successors(id).get(0));
+    }
 
 	/*public boolean isStation(INode station) { // existNode()
 		return (getNode(station))

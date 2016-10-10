@@ -52,16 +52,16 @@ public class Driver {
 //	   }	  
 	   
 	   
-	   for(INode n: ms.BostonMS.search(14, 22)){
-		   System.out.println(n.getId() + " " + n.getName());
-	   }
-//	   System.out.println("Finished");
+//	   for(INode n: ms.BostonMS.search(14, 22)){
+//		   System.out.println(n.getId() + " " + n.getName());
+//	   }
+
 	   
 	   //End of testing code
 	   
 	//   MetroSystem ms_copy = new MetroSystem(mmp.getNumNodes());
 	 //  ms_copy = ms;
-	  // new Menu(ms);
+	   new Menu(ms);
    }
 
    
