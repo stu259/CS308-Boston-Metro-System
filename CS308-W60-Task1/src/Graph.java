@@ -9,7 +9,6 @@ public class Graph implements MultiGraphADT {
     private HashMap<Integer, Set<IEdge>> nodeEdges = new HashMap<>();
     private HashMap<Integer, Station> graph = new HashMap<>();
 
-
     public Graph() {
 
     }

@@ -123,9 +123,9 @@ public class Menu {
 	   
 	   
 	   System.out.println("NOW!, we search!");
-	   for(INode n: ms.BostonMS.search(fromStation, toStation)){
-		   System.out.println(n.getId() + " " + n.getName());
-	   }
+	    ArrayList<INode> dir;
+	    dir = ms.BostonMS.search(fromStation, toStation); 
+		ms.finalOutput(dir);
    }
    
    
