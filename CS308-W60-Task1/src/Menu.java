@@ -123,8 +123,8 @@ public class Menu {
 	   
 	   
 	   System.out.println("NOW!, we search!");
-	   for(INode n: ms.BostonMS.search(fromStation, toStation)){
-		   System.out.println(n.getId() + " " + n.getName());
+	   for(IEdge e: ms.BostonMS.search(fromStation, toStation)){
+		   System.out.println(e.getOut() + " " + e.getIn() + " " + e.getColour());
 	   }
    }
    

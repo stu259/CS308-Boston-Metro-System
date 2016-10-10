@@ -132,8 +132,6 @@ public class MetroMapParser
 	String lineName;
 	String outboundID, inboundID;
 	
-	//for counting the number of lines a station is on
-	int counter = 0;
 	
 	//initialising the arrays for storing the line data
 	ArrayList<Integer> inStations = new ArrayList<Integer>();
@@ -213,7 +211,6 @@ public class MetroMapParser
 			colour.add(lineName);
 			inStations.add(Integer.parseInt(inboundID));
 			outStations.add(Integer.parseInt(outboundID));
-			counter++;
 	    }
 	    
 	    inID.add(inStations);
@@ -222,7 +219,6 @@ public class MetroMapParser
 	    inStations = new ArrayList<Integer>();
 	    outStations = new ArrayList<Integer>();
 	    colour = new ArrayList<String>();
-	    counter = 0;
 		
 	    line = fileInput.readLine();
 	}

@@ -1,5 +1,5 @@
 import java.io.IOException;
-import java.util.HashMap;
+//import java.util.HashMap;
 
 public class Driver {
 	
@@ -41,12 +41,12 @@ public class Driver {
 			   ms.BostonMS.addNode(mmp.getStationID(i), mmp.getStationName(i));
 		   }
 	   }
-	   HashMap<Integer, Station> stationList = ms.BostonMS.getStationList();
+	   //HashMap<Integer, Station> stationList = ms.BostonMS.getStationList();
 	
 	   //test code
-	//	   for(INode n: ms.BostonMS.search(14, 22)){
-	//		   System.out.println(n.getId() + " " + n.getName());
-	//	   }
+	   //	   for(INode n: ms.BostonMS.search(14, 22)){
+	   //		   System.out.println(n.getId() + " " + n.getName());
+	   //	   }
 	
 		//cloning and calling the next class for interaction menu
 	   	MetroSystem clone = ms;

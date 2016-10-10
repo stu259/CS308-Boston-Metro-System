@@ -1,7 +1,5 @@
 import java.util.*;
 
-import static javax.swing.UIManager.get;
-
 
 public class Graph implements MultiGraphADT {
 
@@ -20,6 +18,17 @@ public class Graph implements MultiGraphADT {
             nodeEdges.get(n1).add(new Line(n1, n2, color));
             nodeEdges.get(n2).add(new Line(n2, n1, color));
        }
+    }
+    
+    private ArrayList<IEdge> getEdges(int n1, int n2){
+    	ArrayList<IEdge> edges = new ArrayList<>();
+    	for(int i = 0; i < nodeEdges.size(); i++){
+    		for(IEdge e: nodeEdges.get(i)){
+    			if(e.getIn() == n1 && e.getOut() == n2)
+    				edges.add(e);
+    		}
+    	}
+    	return edges;
     }
 
     //not sure if this method works
@@ -70,9 +79,6 @@ public class Graph implements MultiGraphADT {
     	return graph.get(successors(id).get(0));
     }
 
-	/*public boolean isStation(INode station) { // existNode()
-		return (getNode(station))
-	}*/
 
     public boolean isNode(int node) {
         return nodeEdges.containsKey(node);
@@ -97,7 +103,7 @@ public class Graph implements MultiGraphADT {
     }
 
     @Override
-    public ArrayList<INode> search(int start, int finish) {
+    public ArrayList<IEdge> search(int start, int finish) {
 
         ArrayList<Integer> visited = new ArrayList<>();
         Queue<Integer> q = new LinkedList<>();
@@ -122,11 +128,12 @@ public class Graph implements MultiGraphADT {
     }
     
     
-    private ArrayList<INode> findPath(ArrayList<Integer> nodes) {
-        ArrayList<INode> path = new ArrayList<>();
-        
+    private ArrayList<IEdge> findPath(ArrayList<Integer> nodes) {
+        //ArrayList<INode> path = new ArrayList<>();
+        ArrayList<IEdge> path = new ArrayList<>();
+        ArrayList<IEdge> edges = new ArrayList<>();
         //add finish to the path
-        path.add(graph.get(nodes.get(nodes.size() - 1)));
+        //path.add(graph.get(nodes.get(nodes.size() - 1)));
 
         int index = nodes.size() - 1;
         ArrayList<Integer> connectedNodes = new ArrayList<Integer>();;
@@ -135,7 +142,30 @@ public class Graph implements MultiGraphADT {
         	connectedNodes = successors(nodes.get(index));
             for (int i = 0; i < index; i++) {
             	if(connectedNodes.contains(nodes.get(i))){
-            		path.add(graph.get(nodes.get(i)));
+            		edges = getEdges(nodes.get(index),nodes.get(i));
+            		if(edges.size() > 1){
+            			if(path.isEmpty()){
+            				/*Get the first node's edge list and its colours.
+            				 * Check if the first colour match the last edge's colour
+            				 * IF it matches then add the edge with the same colour in the path
+            				 * otherwise add the other edge (there should only be 2 edges with different colours and same nodes)
+            				 * */
+            				if((getColourList(nodes.get(nodes.size() - 1)).get(0).equals(getEdges(nodes.get(0),nodes.get(1)).get(0).getColour()))){
+            					path.add(edges.get(0));
+            				}else{
+            					path.add(edges.get(1));
+            				}
+            				//check last edge colour and do magic
+            			}else{
+            				if(path.get(path.size()-1).getColour().equals(edges.get(0).getColour()))
+            					path.add(edges.get(0));
+            				else
+            					path.add(edges.get(1));
+            				
+            			}
+            		}else{
+            			path.add(edges.get(0));
+            		}
             		index = i;
             	}
             }

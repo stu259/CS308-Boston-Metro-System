@@ -2,8 +2,8 @@ import java.util.Scanner;
 
 //use the parser for tokenizing and all that jazz
 
-import javax.management.relation.InvalidRoleInfoException;
 
+@SuppressWarnings("serial")
 public class CLIDisplay implements IDisplay{
 
 	Scanner scan;
