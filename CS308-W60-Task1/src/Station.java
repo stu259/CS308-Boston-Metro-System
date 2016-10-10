@@ -4,9 +4,15 @@ public class Station implements INode {
 	
 	private String Name;
 	private int ID;
-	//don't think we need this anymore
-	//private ArrayList<Line> lines;
-	
+
+	/***
+	 * Constructor class initializes variables
+	 * @author Aaron
+	 * @param ID
+	 * @param Name
+	 * 
+	 * @effects ID and Name variable
+	 */
 	public Station(int ID, String Name) {
 		this.Name = Name;
 		this.ID = ID;

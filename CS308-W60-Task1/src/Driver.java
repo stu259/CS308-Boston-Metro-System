@@ -4,24 +4,30 @@ import java.util.HashMap;
 public class Driver {
 	
 	 
-	 static MetroMapParser mmp;
+ static MetroMapParser mmp;
 	 
-	 
+/***
+ * Main Class that runs the Metro Subway System
+ * @param args
+ * 
+ * The main method class in a MetroMapParser and parses the whole list from the text
+ * file. It then tries to generate Graph from that parsed file.
+ * 
+ * The created graph is now ............?
+ */
    public static void main(String[] args) {
-	   
-      
-	   try {
-		   mmp = new MetroMapParser("bostonmetro.txt");
-		} catch (IOException e) {
-			//Probably wrong filepath... Derp
-			//We should not get this point so might as well crash if we do.
-		//	quit();
+		   
+		   try{
+			   mmp = new MetroMapParser("bostonmetro.txt");
+	   } 
+	   catch (IOException e) {
 			e.printStackTrace();
 		}
-
-	   try {
+	
+	   try{
 		   mmp.generateGraphFromFile();
-	   } catch (Exception e) {
+	   } 
+	   catch (Exception e) {
 		   e.printStackTrace();
 	   }
 	   
@@ -36,32 +42,15 @@ public class Driver {
 		   }
 	   }
 	   HashMap<Integer, Station> stationList = ms.BostonMS.getStationList();
-	   
-//	   for(int i = 0; i <= stationList.size(); i++){
-//		   System.out.println(stationList.get(i).getName());
-//		   
-//		   // compare the userinput with the station.getName
-//	   }
-//	   //Testing Code
-//	   System.out.println("number of edges " + ms.BostonMS.nEdges());
-//	   
-//	   for(int i = 1 ; i <= ms.BostonMS.getStationList().size(); i++){
-//		   INode s = ms.BostonMS.getNode(i);
-//		   System.out.println(s.getId() + " "+ s.getName());
-//		  
-//	   }	  
-	   
-	   
-//	   for(INode n: ms.BostonMS.search(14, 22)){
-//		   System.out.println(n.getId() + " " + n.getName());
-//	   }
-
-	   
-	   //End of testing code
-	   
-	//   MetroSystem ms_copy = new MetroSystem(mmp.getNumNodes());
-	 //  ms_copy = ms;
-	   new Menu(ms);
+	
+	   //test code
+	//	   for(INode n: ms.BostonMS.search(14, 22)){
+	//		   System.out.println(n.getId() + " " + n.getName());
+	//	   }
+	
+		//cloning and calling the next class for interaction menu
+	   	MetroSystem clone = ms;
+		new Menu(clone);
    }
 
    

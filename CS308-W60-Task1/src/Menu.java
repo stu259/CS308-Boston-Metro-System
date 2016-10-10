@@ -6,13 +6,20 @@ public class Menu {
 	private static CLIDisplay display = new CLIDisplay();
 	private static MetroSystem ms;
 	
+	/**
+	 * 
+	 * @param MetroSystem graph copy that was cloned and sent to this main menu for
+	 * reference. It then calls the Main Menu for user interaction
+	 */
 	public Menu(MetroSystem system){
 		ms = system;
 		mainMenu();
 		
 	}
 	
-	  
+	/**
+	 * Initiates User Interaction Main Menu to ask user out of given options.
+	 */
    private static void mainMenu(){
 		
 		System.out.println("Welcome to W6 Boston Metro System");
@@ -29,7 +36,7 @@ public class Menu {
 		}
 	}
    
-   //tentative
+   //tentative -- we need to add a better way to display the how to tell the user which line to take and when to change
    private static void directionMenu(){
 	   boolean checkFrom = false, checkTo = false;
 	   int fromStation= 0, toStation = 0;
@@ -119,19 +126,18 @@ public class Menu {
 	   for(INode n: ms.BostonMS.search(fromStation, toStation)){
 		   System.out.println(n.getId() + " " + n.getName());
 	   }
-
-	   
-	   // add search caller here! 
    }
    
-   //shitty feature placeholder
+   
+   /**
+    *  List all the stations from the reference graph to print out a list
+    */
    private static void listStations(){
 	   for(int i=1; i<ms.BostonMS.getStationList().size()+1; i++){
-		   System.out.println(ms.BostonMS.getNode(i).getId()+" Name: "+ms.BostonMS.getNode(i).getName());
+		   System.out.println(ms.BostonMS.getNode(i).getId()+" "+ms.BostonMS.getNode(i).getName());
 	   }
    }
-   
-   //Could use integer as parameter and pass it to exit()
+
    //Quit System
    private static void quit(){
 	   System.exit(0);
@@ -139,7 +145,6 @@ public class Menu {
    
    //tentative method -- final version will be made after we know how we want the thing to look
    public void DisplayRoute(Station[] array){
-	   //boolean linechange = false;
 
 	   System.out.println("So, you're taking the train from");
 	   for(Station x: array){  
@@ -151,6 +156,15 @@ public class Menu {
 	   
    }
    
+   /**
+    * 
+    * @param array
+    * @return
+    * 		an array of string text that are used for options.
+    * 
+    * This method passes through the arrayList and gets a station's line's color and neighbour station
+    * So that we can tell the user more about a duplicate station.
+    */
    private static String[] generateStationList(ArrayList<INode> array){
 	   String options[] = new String [2];
 	   for(int i=0; i<array.size(); i++){

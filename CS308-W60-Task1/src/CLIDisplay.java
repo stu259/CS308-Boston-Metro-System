@@ -9,21 +9,25 @@ public class CLIDisplay implements IDisplay{
 	Scanner scan;
 	String promptSymbol;
 	
+	
+	/**
+	 * Constructor
+	 * @effects	
+	 * 			initializes the prompt symbol
+	 */
 	public CLIDisplay(){
 		promptSymbol = ">>";
 	}
 	
-	/*
-	 * (non-Javadoc)
-	 * @see IDisplay#getChoiceOptions(java.lang.String[], java.lang.String)
+	/***
+	 * @author Junaid 
+	 * @param 
+	 * 			String text that will prompt the user of what type of data that's required of them.
+	 * 			Array of Strings as options menu that are displayed with their option number
 	 * 
-	 * An array of strings as options that are to be selected. And a prompt
-	 * message.
-	 * 
-	 * @return: integer value of the number of option selected.
+	 * @return
+	 * 			the number of option selected based on options list
 	 */
-	
-	
 	@Override
 	public int getChoiceOptions(String[] options, String promptMessage) {
 		// TODO Auto-generated method stub
@@ -73,37 +77,14 @@ public class CLIDisplay implements IDisplay{
 		return chosenOption;
 	}
 
-	@Override
-	public int getInt(int minLimit, int maxLimit, String promptMessage) {
-		
-		int userInput = -1;
-		boolean validInput = false; //since user has not entered anything
-		String rangeWarning = "Your input should be within "+Integer.toString(minLimit)+" and "+Integer.toString(maxLimit);
-
-		
-		while(!validInput){
-			System.out.println(" ");
-			System.out.println(promptMessage);
-			
-			try{
-				System.out.println(promptSymbol);
-				scan = new Scanner(System.in);
-				userInput = scan.nextInt();
-				validInput = true;
-				
-				if(userInput < minLimit || userInput > maxLimit){
-					System.out.println(rangeWarning);
-					validInput = false;
-				}
-			}
-			catch(Exception e){
-				System.out.println("Error: "+e);
-				validInput = false;
-			}
-		}
-		return userInput;
-	}
 	
+	/**
+	 * @author Junaid
+	 * @param
+	 * 			String text that will prompt the user of what type of data that's required of them.
+	 * @return	returns the user choice in a text form
+	 */
+	@Override
 	public String getUserInput(String promptMessage){
 		
 		scan = new Scanner(System.in);
