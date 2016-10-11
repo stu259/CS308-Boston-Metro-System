@@ -123,10 +123,33 @@ public class Menu {
 	   
 	   
 	   System.out.println("NOW!, we search!");
-	   for(IEdge e: ms.BostonMS.search(fromStation, toStation)){
-		   System.out.println(e.getOut() + " " + e.getIn() + " " + e.getColour());
+	   ArrayList<IEdge> edges = ms.BostonMS.search(fromStation, toStation);
+	   ArrayList<String> directions = new ArrayList<String>();
+	   String colour = edges.get(0).getColour();
+	   int stationOne = edges.get(0).getOut();
+	   int stationTwo = edges.get(edges.size() - 1).getIn();
+	   for(int i = 1; i < (edges.size() - 1); i++){
+		   if(!(colour.equals(edges.get(i).getColour()))){
+			   stationTwo = edges.get(i - 1).getIn();
+			   directions.add(addToDirections(stationOne, stationTwo, directions, colour));
+			   colour = edges.get(i).getColour();
+			   stationOne = edges.get(i - 11).getIn();
+		   }
+		  // System.out.println(e.getOut() + " " + e.getIn() + " " + e.getColour());
+		   
+	   }
+	   stationTwo = edges.get(edges.size() - 1).getIn();
+	   directions.add(addToDirections(stationOne, stationTwo, directions, colour));
+	   for(int i = 0; i <= directions.size() - 1; i++){
+		   System.out.println(directions.get(i));
 	   }
    }
+   
+   private static String addToDirections(int station1, int station2, ArrayList<String> directions, String colour){
+	   String direction = "Get the train from " + ms.BostonMS.getNode(station1).getName() + " to " + ms.BostonMS.getNode(station2).getName() + " on the " + colour + " line.";
+	   return direction;
+   }
+   
    
    
    /**
