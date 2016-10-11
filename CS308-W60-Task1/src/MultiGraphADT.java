@@ -7,7 +7,7 @@ public interface MultiGraphADT {
    
    public void addEdge(int n1, int n2, String color);
    
-   public void addNode(INode n);
+   public void addNode(int number, String label);
    
    public INode getNode(int id); 
 

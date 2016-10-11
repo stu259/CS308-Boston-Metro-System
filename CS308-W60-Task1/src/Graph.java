@@ -12,7 +12,15 @@ public class Graph implements MultiGraphADT {
 
     }
 
-    @Override
+    /**
+     * This method will create an edge using the parameters provided,
+     * checks are in place to see if the edge is already created to
+     * avoid duplicates.
+     * @param node1 The first node ID
+     * @param node2 The second node ID
+     * @param Edge Colour
+     * 
+     */
     public void addEdge(int n1, int n2, String color) {
        if (!(isEdge(n1, n2, color))) {
             nodeEdges.get(n1).add(new Line(n1, n2, color));
@@ -20,10 +28,17 @@ public class Graph implements MultiGraphADT {
        }
     }
     
+    /**
+     * This method will always return an ArrayList of edges
+     * that has the two nodes provided as parameters.
+     * @param n1 The first node ID
+     * @param n2 The second node ID
+     * @return ArrayList of edges containing two provided nodes.
+     */
     private ArrayList<IEdge> getEdges(int n1, int n2){
     	ArrayList<IEdge> edges = new ArrayList<>();
-    	for(int i = 0; i < nodeEdges.size(); i++){
-    		for(IEdge e: nodeEdges.get(i)){
+    	for(int i = 0; i < nodeEdges.size(); i++){ // Iterate through HashMap
+    		for(IEdge e: nodeEdges.get(i)){ // Iterate through HashSet
     			if(e.getIn() == n1 && e.getOut() == n2)
     				edges.add(e);
     		}
@@ -31,13 +46,22 @@ public class Graph implements MultiGraphADT {
     	return edges;
     }
 
-    //not sure if this method works
+    /**
+     * This method will firstly check to see if the nodes are already
+     * in the HashMap, if not, to avoid a NullPointerException
+     * we add it to the HashMap. A check is then done to see if
+     * an edge already exists.
+     * @param node1 The first node ID
+     * @param node2 The second node ID
+     * @param label The edge colour
+     * @return true or false if an edge is present
+     */
     private boolean isEdge(int node1, int node2, String label) {
         if (!nodeEdges.containsKey(node1)) {
-            nodeEdges.put(node1, new HashSet<>());
+            nodeEdges.put(node1, new HashSet<IEdge>()); // Put in new method?
         }
         if (!nodeEdges.containsKey(node2)) {
-            nodeEdges.put(node2, new HashSet<>());
+            nodeEdges.put(node2, new HashSet<IEdge>());
         }
         for (IEdge edge : nodeEdges.get(node1)) {
             if (edge.getIn() == node2 && edge.getColour().equals(label)
@@ -49,6 +73,11 @@ public class Graph implements MultiGraphADT {
         return false;
     }
 
+    
+    /**
+     * Used for printing purposes.
+     * @return the whole graph, including the ID of the node and the relevant node object.
+     */
     public HashMap<Integer, Station> getStationList() {
         return graph;
     }
@@ -61,11 +90,22 @@ public class Graph implements MultiGraphADT {
         return size;
     }
 
-    @Override
+
+    /**
+     * Will return a node that is related to the given node ID
+     * @param node id
+     * @return requested node object
+     */
     public INode getNode(int id) {
         return graph.get(id);
     }
     
+    /**
+     * 
+     * @param id
+     * @return List of colours of edges that the node
+     * is a part of.
+     */
     public List<String> getColourList(int id) {
     	List<String> colourList = new ArrayList<>();
     	for(IEdge edge : nodeEdges.get(id)) {
@@ -75,19 +115,40 @@ public class Graph implements MultiGraphADT {
     	return colourList;
     }
     
+    /**
+     *
+     * @param id
+     * @return Node The neighbouring node object in the graph.
+     */
     public INode getNeighbour(int id){
     	return graph.get(successors(id).get(0));
     }
 
 
+    /**
+     * Checks if the node already exists.
+     * @param node
+     * @return true or false depending on if the node exists within the HashMap.
+     */
     public boolean isNode(int node) {
         return nodeEdges.containsKey(node);
     }
 
+    /**
+     * Will add a node to the HashMap.
+     * @param id
+     * @param name
+     */
     public void addNode(int id, String name) {
         graph.put(id, new Station(id, name));
     }
-
+    
+    
+    /**
+     * 
+     * @param node
+     * @return ArrayList of successor node IDs
+     */
     private ArrayList<Integer> successors(int node) {
         ArrayList<Integer> successorNodes = new ArrayList<>();
         Iterator<IEdge> iter = nodeEdges.get(node).iterator();
@@ -97,11 +158,6 @@ public class Graph implements MultiGraphADT {
         return successorNodes;
     }
     
-
-    @Override
-    public void addNode(INode n) {
-    }
-
     @Override
     public ArrayList<IEdge> search(int start, int finish) {
 
