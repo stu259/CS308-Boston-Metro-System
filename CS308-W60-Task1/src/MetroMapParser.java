@@ -262,5 +262,9 @@ public class MetroMapParser
     public ArrayList<String> getColours(int idNum){
     	return lineColours.get(idNum);
     }    
+    
+    public int getNumNodes(){
+    	return id.size();
+    }
 }
 		
