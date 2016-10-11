@@ -155,7 +155,6 @@ public class Graph implements MultiGraphADT {
             				}else{
             					path.add(edges.get(1));
             				}
-            				//check last edge colour and do magic
             			}else{
             				if(path.get(path.size()-1).getColour().equals(edges.get(0).getColour()))
             					path.add(edges.get(0));

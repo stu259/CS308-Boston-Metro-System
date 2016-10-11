@@ -1,6 +1,3 @@
-//commented out BadFileException and changed most of the BadFileException to Exception and added @throws to the function declration part
-
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -169,6 +166,7 @@ public class MetroMapParser
 	    
 	    //from the grammar, we know that the Station ID is the first token on the line
 	    stationID = st.nextToken();
+	    //adds the station id to the stationId array
 	    id.add(Integer.parseInt(stationID));
 	    
 	    
@@ -179,6 +177,7 @@ public class MetroMapParser
 
 	    //from the grammar, we know that the Station Name is the second token on the line.
 	    stationName = st.nextToken();
+	    //adds station name to appropriate array
 	    name.add(stationName);
 	    
 	    
@@ -187,7 +186,7 @@ public class MetroMapParser
 	    	throw new Exception("station is on no lines");
 	    }
 	    
-
+	    //this loop collects data about the multiple lines for station
 	    while(st.hasMoreTokens())
 	    {
 			lineName = st.nextToken();
@@ -212,6 +211,7 @@ public class MetroMapParser
 			inStations.add(Integer.parseInt(inboundID));
 			outStations.add(Integer.parseInt(outboundID));
 	    }
+	    //adds the list of colours, in and out stations to appropriate arrays.
 	    
 	    inID.add(inStations);
 	    outID.add(outStations);
@@ -226,6 +226,7 @@ public class MetroMapParser
        
     }
     
+    //getters for all the arrays which hold data to construct the graph
     public int getStationID(int idNum){
     	return id.get(idNum);
     }
@@ -260,12 +261,6 @@ public class MetroMapParser
     
     public ArrayList<String> getColours(int idNum){
     	return lineColours.get(idNum);
-    }
-    
-    public int getNumNodes(){
-    	return id.size();
-    }
-
-    
+    }    
 }
 		
